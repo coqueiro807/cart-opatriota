@@ -269,7 +269,8 @@ img{
 .offers{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:28px;
+  align-items:stretch;
 }
 
 .offer-card{
@@ -278,9 +279,10 @@ img{
   flex-direction:column;
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:24px;
+  border-radius:32px;
   box-shadow:var(--shadow);
-  padding:28px;
+  padding:28px 36px 34px;
+  min-height:100%;
 }
 
 .offer-card.featured{
@@ -290,39 +292,60 @@ img{
 
 .tag{
   position:absolute;
-  top:16px;
-  right:16px;
+  top:18px;
+  right:18px;
   background:var(--primary);
   color:#fff;
   font-size:12px;
   font-weight:800;
-  padding:8px 12px;
+  padding:10px 16px;
   border-radius:999px;
   text-transform:uppercase;
+  letter-spacing:0.02em;
 }
 
 .offer-card h3{
-  font-size:26px;
-  margin-bottom:8px;
+  font-size:34px;
+  line-height:1.05;
+  margin-bottom:18px;
+  color:#17253c;
 }
 
 .offer-card p{
-  color:var(--text-soft);
-  margin-bottom:18px;
+  color:#556781;
+  margin-bottom:30px;
+  font-size:17px;
 }
 
 .price{
-  font-size:40px;
+  display:flex;
+  align-items:flex-end;
+  gap:12px;
+  margin-bottom:34px;
+  line-height:1;
+}
+
+.price strong{
+  font-size:64px;
   font-weight:800;
-  margin-bottom:20px;
+  letter-spacing:-0.03em;
+  color:#1f2a3d;
+}
+
+.price span{
+  font-size:18px;
+  font-weight:700;
+  color:#556781;
+  margin-bottom:8px;
 }
 
 .offer-features{
   display:grid;
-  gap:10px;
-  margin-bottom:24px;
-  color:var(--text-soft);
-  font-weight:600;
+  gap:14px;
+  margin-bottom:34px;
+  color:#556781;
+  font-weight:700;
+  font-size:17px;
 }
 
 .offer-features div::before{
@@ -334,6 +357,8 @@ img{
 .offer-card .btn{
   margin-top:auto;
   width:100%;
+  min-height:68px;
+  font-size:18px;
 }
 
 .faq-grid{
@@ -399,6 +424,7 @@ img{
   .hero-grid,.steps-grid,.offers,.faq-grid{
     grid-template-columns:1fr;
   }
+
   .offer-card.featured{
     transform:none;
   }
@@ -463,8 +489,28 @@ img{
   }
 
   .offer-card .btn{
-    width:100%;
     max-width:100%;
+  }
+
+  .offer-card{
+    padding:24px 22px 28px;
+    border-radius:26px;
+  }
+
+  .offer-card h3{
+    font-size:28px;
+  }
+
+  .price{
+    justify-content:center;
+  }
+
+  .price strong{
+    font-size:52px;
+  }
+
+  .offer-features{
+    text-align:left;
   }
 }
 </style>
@@ -573,8 +619,18 @@ img{
     <div class="offers">
       <div class="offer-card">
         <h3>1 Cartão</h3>
-        <p>Ideal para surpreender alguém especial</p>
-        <div class="price">R$59</div>
+        <p>Ideal para presentear uma pessoa</p>
+
+        <div class="price">
+          <strong>R$59</strong>
+          <span>/ unidade</span>
+        </div>
+
+        <div class="offer-features">
+          <div>1 cartão com áudio</div>
+          <div>Produto físico</div>
+          <div>Compra segura</div>
+        </div>
 
         <a href="LINK_DO_CHECKOUT_1_UNIDADE" class="btn btn-secondary">
           Comprar 1 unidade
@@ -582,10 +638,20 @@ img{
       </div>
 
       <div class="offer-card featured">
-        <div class="tag">Mais vendido</div>
+        <div class="tag">MAIS VENDIDO</div>
         <h3>2 Cartões</h3>
         <p>Melhor custo-benefício</p>
-        <div class="price">R$99</div>
+
+        <div class="price">
+          <strong>R$99</strong>
+          <span>/ kit</span>
+        </div>
+
+        <div class="offer-features">
+          <div>2 cartões com áudio</div>
+          <div>Economia por unidade</div>
+          <div>Ótimo para presentear mais pessoas</div>
+        </div>
 
         <a href="LINK_DO_CHECKOUT_2_UNIDADES" class="btn btn-primary">
           Comprar 2 unidades
@@ -594,8 +660,18 @@ img{
 
       <div class="offer-card">
         <h3>3 Cartões</h3>
-        <p>Perfeito para presentear mais pessoas</p>
-        <div class="price">R$129</div>
+        <p>Para quem quer levar mais</p>
+
+        <div class="price">
+          <strong>R$129</strong>
+          <span>/ kit</span>
+        </div>
+
+        <div class="offer-features">
+          <div>3 cartões com áudio</div>
+          <div>Maior economia</div>
+          <div>Perfeito para várias ocasiões</div>
+        </div>
 
         <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
           Comprar 3 unidades
