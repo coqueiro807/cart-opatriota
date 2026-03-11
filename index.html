@@ -6,38 +6,33 @@
   <title>Cartão de Aniversário com Áudio</title>
   <meta
     name="description"
-    content="O cartão de aniversário que toca automaticamente quando a pessoa abre. Um presente criativo, surpreendente e inesquecível."
+    content="O cartão de aniversário que toca automaticamente quando a pessoa abre. Um presente criativo, simples e surpreendente."
   />
   <style>
     :root {
-      --bg: #f7f4ee;
-      --bg-soft: #efe8dc;
-      --card: #ffffff;
+      --bg: #f7f3eb;
+      --white: #ffffff;
       --text: #1f2937;
-      --text-soft: #5b6472;
-      --primary: #8b6b2e;
-      --primary-dark: #6f5422;
-      --accent: #1f4b3f;
-      --border: #ded6c8;
-      --shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --max: 1180px;
+      --text-soft: #5f6b7a;
+      --primary: #1f4b3f;
+      --primary-dark: #17372e;
+      --secondary: #9a7b37;
+      --secondary-dark: #7b612c;
+      --border: #ddd2bf;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+      --max-width: 1120px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, #fcfbf8 100%);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.5;
     }
@@ -54,51 +49,13 @@
 
     .container {
       width: 100%;
-      max-width: var(--max);
+      max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .section {
-      padding: 72px 0;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(139, 107, 46, 0.12);
-      color: var(--primary-dark);
-      border: 1px solid rgba(139, 107, 46, 0.18);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin: 0 auto 34px;
-      text-align: center;
-    }
-
-    .section-header h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .section-header p {
-      color: var(--text-soft);
-      font-size: 18px;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
+      padding: 64px 0;
     }
 
     .btn {
@@ -108,8 +65,8 @@
       min-height: 54px;
       padding: 0 24px;
       border-radius: 999px;
-      font-weight: 700;
       font-size: 16px;
+      font-weight: 700;
       transition: 0.2s ease;
       cursor: pointer;
       border: none;
@@ -118,7 +75,7 @@
     .btn-primary {
       background: var(--primary);
       color: #fff;
-      box-shadow: 0 10px 22px rgba(139, 107, 46, 0.25);
+      box-shadow: 0 10px 24px rgba(31, 75, 63, 0.2);
     }
 
     .btn-primary:hover {
@@ -127,62 +84,61 @@
     }
 
     .btn-secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
+      background: var(--secondary);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(154, 123, 55, 0.2);
     }
 
     .btn-secondary:hover {
-      background: rgba(31, 75, 63, 0.06);
+      background: var(--secondary-dark);
+      transform: translateY(-1px);
     }
 
     .hero {
-      padding: 34px 0 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(139, 107, 46, 0.10), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(31, 75, 63, 0.08), transparent 24%);
-      pointer-events: none;
+      padding: 40px 0 60px;
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
       align-items: center;
     }
 
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
+    .badge {
+      display: inline-block;
+      background: rgba(154, 123, 55, 0.12);
+      color: var(--secondary-dark);
+      border: 1px solid rgba(154, 123, 55, 0.18);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
-    .hero p.lead {
-      font-size: 20px;
-      color: var(--text-soft);
-      max-width: 650px;
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 18px;
     }
 
-    .hero-points {
+    .hero p {
+      font-size: 19px;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+
+    .hero-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 10px;
+      margin-bottom: 28px;
     }
 
-    .hero-point {
-      background: #fff;
+    .hero-list span {
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 10px 14px;
@@ -191,20 +147,26 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-card {
-      background: var(--card);
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 28px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 18px;
     }
 
     .media-placeholder {
+      width: 100%;
       aspect-ratio: 4 / 5;
-      border: 2px dashed #c8bca8;
-      border-radius: 22px;
-      background:
-        linear-gradient(135deg, rgba(139, 107, 46, 0.08), rgba(31, 75, 63, 0.06));
+      border: 2px dashed #c7b99f;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(31, 75, 63, 0.07), rgba(154, 123, 55, 0.08));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -212,206 +174,142 @@
       padding: 24px;
       color: var(--text-soft);
       font-weight: 700;
-      min-height: 420px;
     }
 
-    .media-note {
-      margin-top: 14px;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
+    .center-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .center-title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .center-title p {
       color: var(--text-soft);
-      font-size: 14px;
-    }
-
-    .proof-grid,
-    .steps-grid,
-    .benefits-grid,
-    .audience-grid,
-    .faq-grid,
-    .offer-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .proof-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
+      font-size: 18px;
     }
 
     .video-box {
-      background: var(--card);
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 18px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      padding: 18px;
     }
 
     .video-placeholder {
       width: 100%;
       aspect-ratio: 16 / 9;
+      border: 2px dashed #c7b99f;
       border-radius: 18px;
-      border: 2px dashed #c8bca8;
-      background:
-        linear-gradient(135deg, rgba(31, 75, 63, 0.08), rgba(139, 107, 46, 0.08));
+      background: linear-gradient(135deg, rgba(154, 123, 55, 0.08), rgba(31, 75, 63, 0.08));
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 24px;
       color: var(--text-soft);
       font-weight: 700;
-      padding: 20px;
     }
 
-    .text-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .text-card h3 {
-      font-size: 28px;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .text-card p {
-      color: var(--text-soft);
-      margin-bottom: 16px;
-      font-size: 17px;
-    }
-
-    .check-list {
+    .benefits {
       display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .check-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .check-item span {
-      color: var(--accent);
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .steps-grid,
-    .benefits-grid,
-    .audience-grid,
-    .faq-grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .card {
-      background: var(--card);
+    .benefit-card {
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 26px;
+      text-align: center;
     }
 
-    .card h3 {
+    .benefit-card h3 {
       font-size: 22px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .card p {
+    .benefit-card p {
       color: var(--text-soft);
     }
 
-    .number {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(139, 107, 46, 0.12);
-      color: var(--primary-dark);
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .offer-grid {
+    .offers {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      align-items: stretch;
+      gap: 20px;
     }
 
     .offer-card {
       position: relative;
       display: flex;
       flex-direction: column;
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 26px;
+      border-radius: 24px;
       box-shadow: var(--shadow);
       padding: 28px;
     }
 
     .offer-card.featured {
       border: 2px solid var(--primary);
-      transform: translateY(-6px);
+      transform: translateY(-4px);
     }
 
     .tag {
       position: absolute;
       top: 16px;
       right: 16px;
-      background: var(--accent);
+      background: var(--primary);
       color: #fff;
       font-size: 12px;
       font-weight: 800;
       padding: 8px 12px;
       border-radius: 999px;
-      letter-spacing: 0.03em;
       text-transform: uppercase;
     }
 
     .offer-card h3 {
       font-size: 26px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .offer-sub {
+    .offer-card p {
       color: var(--text-soft);
-      margin-bottom: 22px;
-      min-height: 44px;
+      margin-bottom: 18px;
     }
 
     .price {
-      font-size: 44px;
-      line-height: 1;
+      font-size: 40px;
       font-weight: 800;
-      margin-bottom: 14px;
-      color: var(--text);
+      margin-bottom: 20px;
     }
 
     .price small {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text-soft);
     }
 
-    .mini-list {
+    .offer-features {
       display: grid;
       gap: 10px;
-      margin: 22px 0 28px;
+      margin-bottom: 24px;
       color: var(--text-soft);
       font-weight: 600;
     }
 
-    .mini-list div::before {
+    .offer-features div::before {
       content: "• ";
-      color: var(--primary);
+      color: var(--secondary);
       font-weight: 900;
     }
 
@@ -420,130 +318,70 @@
       width: 100%;
     }
 
-    .trust {
-      background: linear-gradient(180deg, rgba(31, 75, 63, 0.05), rgba(139, 107, 46, 0.05));
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .trust-item {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 20px;
-      text-align: center;
-      font-weight: 700;
-    }
-
-    .faq-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .faq-item h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .faq-item p {
-      color: var(--text-soft);
-    }
-
     .cta-final {
-      background: linear-gradient(135deg, rgba(139, 107, 46, 0.12), rgba(31, 75, 63, 0.10));
+      padding-top: 20px;
+      padding-bottom: 70px;
     }
 
     .cta-box {
-      background: #fff;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 28px;
       box-shadow: var(--shadow);
-      padding: 40px 28px;
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto;
+      padding: 42px 24px;
     }
 
     .cta-box h2 {
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(30px, 4vw, 46px);
       line-height: 1.08;
       margin-bottom: 14px;
     }
 
     .cta-box p {
-      color: var(--text-soft);
-      font-size: 18px;
       max-width: 680px;
       margin: 0 auto 24px;
+      color: var(--text-soft);
+      font-size: 18px;
     }
 
-    footer {
-      padding: 28px 0 50px;
-      color: var(--text-soft);
+    .footer {
+      padding: 26px 0 40px;
       text-align: center;
+      color: var(--text-soft);
       font-size: 14px;
     }
 
-    .disclaimer {
-      margin-top: 12px;
-      font-size: 13px;
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (max-width: 1024px) {
+    @media (max-width: 980px) {
       .hero-grid,
-      .proof-grid,
-      .steps-grid,
-      .benefits-grid,
-      .audience-grid,
-      .faq-grid,
-      .offer-grid,
-      .trust-grid {
+      .benefits,
+      .offers {
         grid-template-columns: 1fr;
       }
 
       .offer-card.featured {
         transform: none;
       }
-
-      .hero {
-        padding-top: 18px;
-      }
     }
 
     @media (max-width: 640px) {
+      .hero {
+        padding: 26px 0 40px;
+      }
+
       .section {
-        padding: 56px 0;
+        padding: 48px 0;
       }
 
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero p.lead,
-      .section-header p,
+      .hero p,
+      .center-title p,
       .cta-box p {
         font-size: 16px;
       }
 
-      .card,
-      .text-card,
-      .offer-card,
-      .cta-box {
-        padding: 22px;
-      }
-
-      .btn-group {
+      .hero-buttons {
         flex-direction: column;
       }
 
@@ -556,243 +394,104 @@
 <body>
 
   <!--
-    ============================
-    INSTRUÇÕES RÁPIDAS
-    ============================
-    1) Troque os links com # pelos seus links reais.
-    2) Para imagem, substitua os blocos .media-placeholder por <img src="SEU-LINK" alt="...">
-    3) Para vídeo, substitua o .video-placeholder por iframe ou vídeo embed.
-    4) Duplicar UTMs: coloque no href dos botões de compra.
+    INSTRUÇÕES:
+    1) Troque os links dos botões.
+    2) Substitua os placeholders por imagem e vídeo reais.
+    3) Pode manter tudo em um único arquivo index.html.
   -->
 
-  <header class="hero">
+  <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
           <div class="badge">Presente criativo • áudio automático ao abrir</div>
 
-          <h1>O cartão de aniversário que começa a tocar quando a pessoa abre</h1>
+          <h1>O cartão de aniversário que fala quando a pessoa abre</h1>
 
-          <p class="lead">
-            Um presente físico, criativo e surpreendente que transforma qualquer aniversário
-            em um momento marcante. Basta abrir o cartão e a mensagem começa automaticamente.
+          <p>
+            Um presente simples, criativo e surpreendente. É só abrir o cartão
+            para a mensagem começar automaticamente.
           </p>
 
-          <div class="hero-points">
-            <div class="hero-point">Áudio automático</div>
-            <div class="hero-point">Produto físico</div>
-            <div class="hero-point">Perfeito para surpreender</div>
-            <div class="hero-point">Envio para todo o Brasil</div>
+          <div class="hero-list">
+            <span>Áudio automático</span>
+            <span>Produto físico</span>
+            <span>Fácil de presentear</span>
           </div>
 
-          <div class="btn-group">
-            <a class="btn btn-primary" href="#ofertas">Quero surpreender alguém</a>
-            <a class="btn btn-secondary" href="#demonstracao">Ver como funciona</a>
+          <div class="hero-buttons">
+            <a href="#ofertas" class="btn btn-primary">Comprar agora</a>
+            <a href="#video" class="btn btn-secondary">Ver demonstração</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <!-- SUBSTITUA ESTE BLOCO POR UMA IMAGEM -->
+        <div class="card">
+          <!-- TROQUE POR UMA IMAGEM -->
           <!-- Exemplo:
-          <img src="https://SEU-LINK-DA-IMAGEM-AQUI.jpg" alt="Cartão de aniversário com áudio aberto" style="border-radius:22px;">
+          <img src="SEU-LINK-DA-IMAGEM.jpg" alt="Cartão de aniversário com áudio" style="border-radius:18px;">
           -->
           <div class="media-placeholder">
-            Adicione aqui a imagem principal do produto<br><br>
-            Sugestão: cartão aberto, em boa iluminação, mostrando o visual premium.
-          </div>
-
-          <div class="media-note">
-            Link da imagem principal: <strong>SUBSTITUIR AQUI NO HTML</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="section" id="demonstracao">
-    <div class="container">
-      <div class="proof-grid">
-        <div class="video-box">
-          <!-- SUBSTITUA ESTE BLOCO POR UM VÍDEO -->
-          <!-- Exemplo com iframe:
-          <iframe
-            src="https://SEU-LINK-DO-VIDEO"
-            title="Demonstração do cartão com áudio"
-            width="100%"
-            height="100%"
-            style="border:0; aspect-ratio:16/9; border-radius:18px;"
-            allowfullscreen>
-          </iframe>
-          -->
-          <div class="video-placeholder">
-            Adicione aqui o vídeo de demonstração<br><br>
-            Sugestão de vídeo: pessoa abrindo o cartão, áudio começando e reação acontecendo.
-          </div>
-        </div>
-
-        <div class="text-card">
-          <h3>Veja o que acontece quando o cartão é aberto</h3>
-          <p>
-            Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está
-            no próprio cartão. Ao abrir, a mensagem começa automaticamente.
-          </p>
-
-          <div class="check-list">
-            <div class="check-item"><span>✓</span> A surpresa acontece na hora</div>
-            <div class="check-item"><span>✓</span> Fácil de entender e de presentear</div>
-            <div class="check-item"><span>✓</span> Muito mais marcante que um cartão comum</div>
-            <div class="check-item"><span>✓</span> Ótimo para gravar a reação de quem recebe</div>
-          </div>
-
-          <div class="btn-group">
-            <a class="btn btn-primary" href="#ofertas">Escolher minha oferta</a>
+            Adicione aqui a imagem principal do cartão
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="como-funciona">
+  <section class="section" id="video">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">Como funciona</div>
-        <h2>Simples, rápido e surpreendente</h2>
+      <div class="center-title">
+        <h2>Veja como funciona</h2>
         <p>
-          Um presente pensado para causar impacto sem complicação.
+          Ao abrir o cartão, o áudio toca automaticamente e cria uma surpresa na hora.
         </p>
       </div>
 
-      <div class="steps-grid">
-        <div class="card">
-          <div class="number">1</div>
-          <h3>Você escolhe o cartão</h3>
-          <p>
-            Selecione a quantidade ideal para presentear uma ou mais pessoas em ocasiões especiais.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">2</div>
-          <h3>Recebe e entrega</h3>
-          <p>
-            O cartão chega pronto para presentear. É só entregar para a pessoa certa no momento certo.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">3</div>
-          <h3>Ao abrir, o áudio toca</h3>
-          <p>
-            A mensagem começa automaticamente e transforma o presente em uma lembrança muito mais marcante.
-          </p>
+      <div class="video-box">
+        <!-- TROQUE POR VÍDEO -->
+        <!-- Exemplo:
+        <iframe
+          src="SEU-LINK-DO-VIDEO"
+          title="Vídeo de demonstração"
+          width="100%"
+          height="100%"
+          style="border:0; aspect-ratio:16/9; border-radius:18px;"
+          allowfullscreen>
+        </iframe>
+        -->
+        <div class="video-placeholder">
+          Adicione aqui o vídeo de demonstração
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="para-quem">
+  <section class="section">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">Para quem é</div>
-        <h2>Perfeito para quem quer sair do presente sem graça</h2>
-        <p>
-          Esse cartão foi feito para quem quer causar reação, arrancar risada e marcar presença.
-        </p>
+      <div class="center-title">
+        <h2>Por que esse cartão chama atenção?</h2>
       </div>
 
-      <div class="audience-grid">
-        <div class="card">
-          <h3>Amigos e familiares</h3>
+      <div class="benefits">
+        <div class="benefit-card">
+          <h3>Surpreende na hora</h3>
           <p>
-            Ideal para presentear alguém próximo com algo criativo, diferente e memorável.
+            A pessoa abre o cartão e a mensagem começa automaticamente.
           </p>
         </div>
 
-        <div class="card">
-          <h3>Quem gosta de humor e surpresa</h3>
+        <div class="benefit-card">
+          <h3>Fácil de entender</h3>
           <p>
-            Um presente simples de entregar, mas com efeito muito maior do que um cartão tradicional.
+            Não precisa de aplicativo, celular ou qualquer configuração.
           </p>
         </div>
 
-        <div class="card">
-          <h3>Quem quer gravar o momento</h3>
+        <div class="benefit-card">
+          <h3>Mais marcante</h3>
           <p>
-            Perfeito para criar uma reação espontânea e transformar a entrega em conteúdo ou lembrança.
+            Muito mais memorável do que um cartão comum.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="diferenciais">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge">Diferenciais</div>
-        <h2>Por que esse cartão chama tanta atenção?</h2>
-        <p>
-          Porque ele não é apenas um cartão. Ele cria um momento.
-        </p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="card">
-          <h3>Áudio automático</h3>
-          <p>
-            A pessoa abre e a mensagem começa na hora, sem depender de celular ou qualquer outro recurso.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Efeito surpresa real</h3>
-          <p>
-            Quem recebe não espera que o cartão fale. Isso aumenta a curiosidade, a reação e o impacto.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Presente fora do comum</h3>
-          <p>
-            Uma forma criativa de comemorar sem cair no básico de sempre.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="galeria">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge">Imagens do produto</div>
-        <h2>Mostre o cartão de vários ângulos</h2>
-        <p>
-          Aqui você pode colocar fotos abertas, fechadas e detalhes do acabamento.
-        </p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="card">
-          <!-- SUBSTITUA POR IMG -->
-          <!-- <img src="https://SEU-LINK-DA-IMAGEM-1.jpg" alt="Cartão fechado" style="border-radius:16px; margin-bottom:16px;"> -->
-          <div class="media-placeholder" style="min-height: 240px; aspect-ratio: 4/3;">
-            Imagem 1<br><br>Ex.: cartão fechado
-          </div>
-        </div>
-
-        <div class="card">
-          <!-- SUBSTITUA POR IMG -->
-          <!-- <img src="https://SEU-LINK-DA-IMAGEM-2.jpg" alt="Cartão aberto" style="border-radius:16px; margin-bottom:16px;"> -->
-          <div class="media-placeholder" style="min-height: 240px; aspect-ratio: 4/3;">
-            Imagem 2<br><br>Ex.: cartão aberto
-          </div>
-        </div>
-
-        <div class="card">
-          <!-- SUBSTITUA POR IMG -->
-          <!-- <img src="https://SEU-LINK-DA-IMAGEM-3.jpg" alt="Detalhes do cartão" style="border-radius:16px; margin-bottom:16px;"> -->
-          <div class="media-placeholder" style="min-height: 240px; aspect-ratio: 4/3;">
-            Imagem 3<br><br>Ex.: detalhes do acabamento
-          </div>
         </div>
       </div>
     </div>
@@ -800,28 +499,24 @@
 
   <section class="section" id="ofertas">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">Escolha sua oferta</div>
-        <h2>Quanto mais unidades, melhor o custo-benefício</h2>
-        <p>
-          Escolha a opção ideal para surpreender uma ou mais pessoas.
-        </p>
+      <div class="center-title">
+        <h2>Escolha sua oferta</h2>
+        <p>Leve uma ou mais unidades para surpreender ainda mais.</p>
       </div>
 
-      <div class="offer-grid">
+      <div class="offers">
         <div class="offer-card">
           <h3>1 Cartão</h3>
-          <div class="offer-sub">Ideal para presentear uma pessoa especial</div>
+          <p>Ideal para presentear uma pessoa</p>
           <div class="price">R$59 <small>/ unidade</small></div>
 
-          <div class="mini-list">
-            <div>1 cartão com áudio automático</div>
-            <div>Produto físico pronto para presentear</div>
+          <div class="offer-features">
+            <div>1 cartão com áudio</div>
+            <div>Produto físico</div>
             <div>Compra segura</div>
           </div>
 
-          <!-- SUBSTITUIR LINK -->
-          <a class="btn btn-secondary" href="LINK_DO_CHECKOUT_1_UNIDADE_AQUI">
+          <a href="LINK_DO_CHECKOUT_1_UNIDADE" class="btn btn-secondary">
             Comprar 1 unidade
           </a>
         </div>
@@ -829,34 +524,32 @@
         <div class="offer-card featured">
           <div class="tag">Mais vendido</div>
           <h3>2 Cartões</h3>
-          <div class="offer-sub">Melhor opção para economizar por unidade</div>
+          <p>Melhor custo-benefício</p>
           <div class="price">R$99 <small>/ kit</small></div>
 
-          <div class="mini-list">
-            <div>2 cartões com áudio automático</div>
-            <div>Melhor custo-benefício</div>
-            <div>Excelente para presentear mais de uma pessoa</div>
+          <div class="offer-features">
+            <div>2 cartões com áudio</div>
+            <div>Economia por unidade</div>
+            <div>Ótimo para presentear mais pessoas</div>
           </div>
 
-          <!-- SUBSTITUIR LINK -->
-          <a class="btn btn-primary" href="LINK_DO_CHECKOUT_2_UNIDADES_AQUI">
+          <a href="LINK_DO_CHECKOUT_2_UNIDADES" class="btn btn-primary">
             Comprar 2 unidades
           </a>
         </div>
 
         <div class="offer-card">
           <h3>3 Cartões</h3>
-          <div class="offer-sub">Ideal para quem quer levar mais e pagar menos por cartão</div>
+          <p>Para quem quer levar mais</p>
           <div class="price">R$129 <small>/ kit</small></div>
 
-          <div class="mini-list">
-            <div>3 cartões com áudio automático</div>
-            <div>Maior economia por unidade</div>
-            <div>Perfeito para mais aniversários e presentes</div>
+          <div class="offer-features">
+            <div>3 cartões com áudio</div>
+            <div>Maior economia</div>
+            <div>Perfeito para várias ocasiões</div>
           </div>
 
-          <!-- SUBSTITUIR LINK -->
-          <a class="btn btn-secondary" href="LINK_DO_CHECKOUT_3_UNIDADES_AQUI">
+          <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
             Comprar 3 unidades
           </a>
         </div>
@@ -864,109 +557,24 @@
     </div>
   </section>
 
-  <section class="section trust" id="confianca">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge">Compra segura</div>
-        <h2>Mais confiança para fechar seu pedido</h2>
-        <p>
-          Reforce os principais pontos para reduzir objeções na etapa final da compra.
-        </p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-item">Pagamento seguro</div>
-        <div class="trust-item">Produto físico</div>
-        <div class="trust-item">Envio para todo o Brasil</div>
-        <div class="trust-item">Atendimento fácil</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge">Perguntas frequentes</div>
-        <h2>Tire suas dúvidas antes de comprar</h2>
-        <p>
-          Essas respostas ajudam a remover as objeções mais comuns.
-        </p>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>Como o áudio funciona?</h3>
-          <p>
-            O cartão possui um sistema de áudio embutido. Ao abrir, a mensagem começa automaticamente.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Precisa de celular ou aplicativo?</h3>
-          <p>
-            Não. Todo o funcionamento acontece no próprio cartão.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>É um produto físico?</h3>
-          <p>
-            Sim. O cartão é enviado para o endereço informado no momento da compra.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Posso mandar direto para quem vou presentear?</h3>
-          <p>
-            Sim. Basta informar corretamente o endereço de entrega no checkout.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Qual o prazo de envio?</h3>
-          <p>
-            O prazo pode ser exibido no checkout conforme o CEP do destinatário e sua logística configurada.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>O pagamento é seguro?</h3>
-          <p>
-            Sim. O processamento do pagamento acontece em ambiente protegido, conforme a plataforma de checkout utilizada.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-final">
+  <section class="cta-final">
     <div class="container">
       <div class="cta-box">
-        <h2>Transforme um aniversário comum em um momento inesquecível</h2>
+        <h2>Um presente simples, direto e impossível de esquecer</h2>
         <p>
-          Entregue um presente criativo, surpreendente e muito mais marcante do que um cartão comum.
+          Surpreenda alguém com um cartão que fala no momento em que é aberto.
         </p>
 
-        <div class="btn-group" style="justify-content: center;">
-          <!-- SUBSTITUIR LINK PRINCIPAL -->
-          <a class="btn btn-primary" href="LINK_PRINCIPAL_DE_COMPRA_AQUI">
-            Quero meu cartão agora
-          </a>
-
-          <a class="btn btn-secondary" href="#demonstracao">
-            Rever demonstração
-          </a>
-        </div>
+        <a href="LINK_PRINCIPAL_DE_COMPRA" class="btn btn-primary">
+          Quero meu cartão agora
+        </a>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p><strong>Nome da sua marca</strong> • Todos os direitos reservados</p>
-      <p class="disclaimer">
-        Personalize este rodapé com seus dados, WhatsApp, e-mail, política de privacidade e termos de compra.
-      </p>
+      <p><strong>Sua marca aqui</strong> • Todos os direitos reservados</p>
     </div>
   </footer>
 
