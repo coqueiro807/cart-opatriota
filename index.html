@@ -6,7 +6,7 @@
   <title>Cartão de Aniversário com Áudio</title>
   <meta
     name="description"
-    content="O cartão de aniversário que toca automaticamente quando a pessoa abre. Um presente criativo, simples e surpreendente."
+    content="O cartão de aniversário que toca automaticamente quando a pessoa abre. Um presente simples, criativo e surpreendente."
   />
   <style>
     :root {
@@ -95,7 +95,7 @@
     }
 
     .hero {
-      padding: 40px 0 60px;
+      padding: 50px 0 60px;
     }
 
     .hero-grid {
@@ -103,18 +103,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 34px;
       align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(154, 123, 55, 0.12);
-      color: var(--secondary-dark);
-      border: 1px solid rgba(154, 123, 55, 0.18);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 18px;
     }
 
     .hero h1 {
@@ -126,25 +114,8 @@
     .hero p {
       font-size: 19px;
       color: var(--text-soft);
-      margin-bottom: 24px;
-      max-width: 580px;
-    }
-
-    .hero-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       margin-bottom: 28px;
-    }
-
-    .hero-list span {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: 700;
-      box-shadow: var(--shadow);
+      max-width: 580px;
     }
 
     .hero-buttons {
@@ -193,9 +164,14 @@
       font-size: 18px;
     }
 
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
     .video-box {
-      max-width: 900px;
-      margin: 0 auto;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -216,6 +192,46 @@
       padding: 24px;
       color: var(--text-soft);
       font-weight: 700;
+    }
+
+    .text-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .text-card h3 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .text-card p {
+      color: var(--text-soft);
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .check-item span {
+      color: var(--primary);
+      font-size: 18px;
+      line-height: 1;
     }
 
     .benefits {
@@ -318,6 +334,29 @@
       width: 100%;
     }
 
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .faq-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: var(--text-soft);
+    }
+
     .cta-final {
       padding-top: 20px;
       padding-bottom: 70px;
@@ -356,8 +395,10 @@
 
     @media (max-width: 980px) {
       .hero-grid,
+      .proof-grid,
       .benefits,
-      .offers {
+      .offers,
+      .faq-grid {
         grid-template-columns: 1fr;
       }
 
@@ -368,7 +409,7 @@
 
     @media (max-width: 640px) {
       .hero {
-        padding: 26px 0 40px;
+        padding: 32px 0 40px;
       }
 
       .section {
@@ -377,7 +418,8 @@
 
       .hero p,
       .center-title p,
-      .cta-box p {
+      .cta-box p,
+      .text-card p {
         font-size: 16px;
       }
 
@@ -387,6 +429,10 @@
 
       .btn {
         width: 100%;
+      }
+
+      .text-card h3 {
+        font-size: 24px;
       }
     }
   </style>
@@ -404,8 +450,6 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="badge">Presente criativo • áudio automático ao abrir</div>
-
           <h1>O cartão de aniversário que fala quando a pessoa abre</h1>
 
           <p>
@@ -413,15 +457,9 @@
             para a mensagem começar automaticamente.
           </p>
 
-          <div class="hero-list">
-            <span>Áudio automático</span>
-            <span>Produto físico</span>
-            <span>Fácil de presentear</span>
-          </div>
-
           <div class="hero-buttons">
             <a href="#ofertas" class="btn btn-primary">Comprar agora</a>
-            <a href="#video" class="btn btn-secondary">Ver demonstração</a>
+            <a href="#demonstracao" class="btn btn-secondary">Ver demonstração</a>
           </div>
         </div>
 
@@ -438,29 +476,39 @@
     </div>
   </section>
 
-  <section class="section" id="video">
+  <section class="section" id="demonstracao">
     <div class="container">
-      <div class="center-title">
-        <h2>Veja como funciona</h2>
-        <p>
-          Ao abrir o cartão, o áudio toca automaticamente e cria uma surpresa na hora.
-        </p>
-      </div>
+      <div class="proof-grid">
+        <div class="video-box">
+          <!-- TROQUE POR VÍDEO -->
+          <!-- Exemplo:
+          <iframe
+            src="SEU-LINK-DO-VIDEO"
+            title="Vídeo de demonstração"
+            width="100%"
+            height="100%"
+            style="border:0; aspect-ratio:16/9; border-radius:18px;"
+            allowfullscreen>
+          </iframe>
+          -->
+          <div class="video-placeholder">
+            Adicione aqui o vídeo de demonstração
+          </div>
+        </div>
 
-      <div class="video-box">
-        <!-- TROQUE POR VÍDEO -->
-        <!-- Exemplo:
-        <iframe
-          src="SEU-LINK-DO-VIDEO"
-          title="Vídeo de demonstração"
-          width="100%"
-          height="100%"
-          style="border:0; aspect-ratio:16/9; border-radius:18px;"
-          allowfullscreen>
-        </iframe>
-        -->
-        <div class="video-placeholder">
-          Adicione aqui o vídeo de demonstração
+        <div class="text-card">
+          <h3>Veja o que acontece quando o cartão é aberto</h3>
+          <p>
+            Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está
+            no próprio cartão. Ao abrir, a mensagem começa automaticamente.
+          </p>
+
+          <div class="check-list">
+            <div class="check-item"><span>✓</span> A surpresa acontece na hora</div>
+            <div class="check-item"><span>✓</span> Fácil de entender e de presentear</div>
+            <div class="check-item"><span>✓</span> Muito mais marcante que um cartão comum</div>
+            <div class="check-item"><span>✓</span> Ótimo para gravar a reação de quem recebe</div>
+          </div>
         </div>
       </div>
     </div>
@@ -552,6 +600,59 @@
           <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
             Comprar 3 unidades
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="center-title">
+        <h2>Perguntas frequentes</h2>
+        <p>Tire suas dúvidas antes de comprar.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Como o áudio funciona?</h3>
+          <p>
+            O cartão possui um sistema de áudio embutido. Ao abrir, a mensagem começa automaticamente.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Precisa de celular ou aplicativo?</h3>
+          <p>
+            Não. Todo o funcionamento acontece no próprio cartão.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>É um produto físico?</h3>
+          <p>
+            Sim. O cartão é enviado para o endereço informado no momento da compra.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Posso mandar direto para quem vou presentear?</h3>
+          <p>
+            Sim. Basta informar corretamente o endereço de entrega no checkout.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Qual o prazo de envio?</h3>
+          <p>
+            O prazo pode ser exibido no checkout conforme o CEP do destinatário e sua logística configurada.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>O pagamento é seguro?</h3>
+          <p>
+            Sim. O processamento do pagamento acontece em ambiente protegido, conforme a plataforma de checkout utilizada.
+          </p>
         </div>
       </div>
     </div>
