@@ -1,690 +1,672 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Cartão Patriota com Áudio | O cartão que fala ao abrir</title>
-
-  <meta
-    name="description"
-    content="O cartão patriota que fala quando é aberto. Um presente criativo e surpreendente para quem ama o Brasil."
-  />
-
-  <style>
-    :root {
-      --bg: #f7f3eb;
-      --white: #ffffff;
-      --text: #1f2937;
-      --text-soft: #5f6b7a;
-      --primary: #1f4b3f;
-      --primary-dark: #17372e;
-      --secondary: #9a7b37;
-      --secondary-dark: #7b612c;
-      --border: #ddd2bf;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      --radius: 22px;
-      --max-width: 1120px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .section {
-      padding: 64px 0;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: none;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(31, 75, 63, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: var(--secondary);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(154, 123, 55, 0.2);
-    }
-
-    .btn-secondary:hover {
-      background: var(--secondary-dark);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      padding: 50px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      color: var(--text-soft);
-      margin-bottom: 28px;
-      max-width: 580px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .media-placeholder {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      border: 2px dashed #c7b99f;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(31, 75, 63, 0.07), rgba(154, 123, 55, 0.08));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--text-soft);
-      font-weight: 700;
-    }
-
-    .center-title {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 34px;
-    }
-
-    .center-title h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 12px;
-      line-height: 1.1;
-    }
-
-    .center-title p {
-      color: var(--text-soft);
-      font-size: 18px;
-    }
-
-    .text-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .text-card h3 {
-      font-size: 28px;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .text-card p {
-      color: var(--text-soft);
-      margin-bottom: 16px;
-      font-size: 17px;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .check-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .check-item span {
-      color: var(--primary);
-      font-size: 18px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .step-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
-      text-align: left;
-    }
-
-    .step-number {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(154, 123, 55, 0.12);
-      color: var(--secondary-dark);
-      font-weight: 800;
-      margin-bottom: 16px;
-      font-size: 18px;
-    }
-
-    .step-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .step-card p {
-      color: var(--text-soft);
-    }
-
-    .offers {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .offer-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .offer-card.featured {
-      border: 2px solid var(--primary);
-      transform: translateY(-4px);
-    }
-
-    .tag {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 8px 12px;
-      border-radius: 999px;
-      text-transform: uppercase;
-    }
-
-    .offer-card h3 {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-    .offer-card p {
-      color: var(--text-soft);
-      margin-bottom: 18px;
-    }
-
-    .price {
-      font-size: 40px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .price small {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-soft);
-    }
-
-    .offer-features {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 24px;
-      color: var(--text-soft);
-      font-weight: 600;
-    }
-
-    .offer-features div::before {
-      content: "• ";
-      color: var(--secondary);
-      font-weight: 900;
-    }
-
-    .offer-card .btn {
-      margin-top: auto;
-      width: 100%;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .faq-item h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .faq-item p {
-      color: var(--text-soft);
-    }
-
-    .cta-final {
-      padding-top: 20px;
-      padding-bottom: 70px;
-    }
-
-    .cta-box {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 42px 24px;
-    }
-
-    .cta-box h2 {
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.08;
-      margin-bottom: 14px;
-    }
-
-    .cta-box p {
-      max-width: 680px;
-      margin: 0 auto 24px;
-      color: var(--text-soft);
-      font-size: 18px;
-    }
-
-    .footer {
-      padding: 26px 0 40px;
-      text-align: center;
-      color: var(--text-soft);
-      font-size: 14px;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .steps-grid,
-      .offers,
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .offer-card.featured {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding: 32px 0 40px;
-      }
-
-      .section {
-        padding: 48px 0;
-      }
-
-      .hero,
-      .hero h1,
-      .hero p,
-      .text-card,
-      .text-card h3,
-      .text-card p,
-      .center-title,
-      .step-card,
-      .offer-card,
-      .faq-item,
-      .cta-box,
-      .footer {
-        text-align: center;
-      }
-
-      .hero p,
-      .center-title p,
-      .cta-box p,
-      .text-card p {
-        font-size: 16px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 340px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .text-card h3 {
-        font-size: 24px;
-      }
-
-      .check-item {
-        justify-content: center;
-        text-align: left;
-      }
-
-      .step-number {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .offer-card .btn {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Cartão Patriota com Áudio | O cartão que fala ao abrir</title>
+
+<meta
+  name="description"
+  content="O cartão patriota que fala quando é aberto. Um presente criativo e surpreendente para quem ama o Brasil."
+/>
+
+<style>
+:root {
+  --bg:#f7f3eb;
+  --white:#ffffff;
+  --text:#1f2937;
+  --text-soft:#5f6b7a;
+  --primary:#1f4b3f;
+  --primary-dark:#17372e;
+  --secondary:#9a7b37;
+  --secondary-dark:#7b612c;
+  --border:#ddd2bf;
+  --shadow:0 12px 30px rgba(0,0,0,0.08);
+  --radius:22px;
+  --max-width:1120px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.section{
+  padding:64px 0;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 24px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:700;
+  transition:0.2s ease;
+  cursor:pointer;
+  border:none;
+  text-align:center;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(31,75,63,0.2);
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.btn-secondary{
+  background:var(--secondary);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(154,123,55,0.2);
+}
+
+.btn-secondary:hover{
+  background:var(--secondary-dark);
+  transform:translateY(-1px);
+}
+
+.hero{
+  padding:50px 0 60px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.05;
+  margin-bottom:18px;
+}
+
+.hero p{
+  font-size:19px;
+  color:var(--text-soft);
+  margin-bottom:28px;
+  max-width:580px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  text-align:center;
+}
+
+.media-placeholder{
+  width:100%;
+  aspect-ratio:4/5;
+  border:2px dashed #c7b99f;
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(31,75,63,0.07),rgba(154,123,55,0.08));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px;
+  color:var(--text-soft);
+  font-weight:700;
+}
+
+.patriot-seal{
+  display:inline-block;
+  margin-top:16px;
+  padding:10px 18px;
+  font-weight:700;
+  font-size:15px;
+  color:#1f4b3f;
+  background:rgba(154,123,55,0.12);
+  border:1px solid rgba(154,123,55,0.35);
+  border-radius:999px;
+  text-align:center;
+}
+
+.center-title{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 34px;
+}
+
+.center-title h2{
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:12px;
+  line-height:1.1;
+}
+
+.center-title p{
+  color:var(--text-soft);
+  font-size:18px;
+}
+
+.text-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.text-card h3{
+  font-size:28px;
+  line-height:1.15;
+  margin-bottom:14px;
+}
+
+.text-card p{
+  color:var(--text-soft);
+  margin-bottom:16px;
+  font-size:17px;
+}
+
+.check-list{
+  display:grid;
+  gap:12px;
+  margin-top:10px;
+}
+
+.check-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--text);
+  font-weight:600;
+}
+
+.check-item span{
+  color:var(--primary);
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.step-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:26px;
+  text-align:left;
+}
+
+.step-number{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(154,123,55,0.12);
+  color:var(--secondary-dark);
+  font-weight:800;
+  margin-bottom:16px;
+  font-size:18px;
+}
+
+.step-card h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.step-card p{
+  color:var(--text-soft);
+}
+
+.offers{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.offer-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.offer-card.featured{
+  border:2px solid var(--primary);
+  transform:translateY(-4px);
+}
+
+.tag{
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:var(--primary);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  padding:8px 12px;
+  border-radius:999px;
+  text-transform:uppercase;
+}
+
+.offer-card h3{
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.offer-card p{
+  color:var(--text-soft);
+  margin-bottom:18px;
+}
+
+.price{
+  font-size:40px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.offer-features{
+  display:grid;
+  gap:10px;
+  margin-bottom:24px;
+  color:var(--text-soft);
+  font-weight:600;
+}
+
+.offer-features div::before{
+  content:"• ";
+  color:var(--secondary);
+  font-weight:900;
+}
+
+.offer-card .btn{
+  margin-top:auto;
+  width:100%;
+}
+
+.faq-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.faq-item{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
+.faq-item h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.faq-item p{
+  color:var(--text-soft);
+}
+
+.cta-final{
+  padding-top:20px;
+  padding-bottom:70px;
+}
+
+.cta-box{
+  max-width:860px;
+  margin:0 auto;
+  text-align:center;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:42px 24px;
+}
+
+.cta-box h2{
+  font-size:clamp(30px,4vw,46px);
+  line-height:1.08;
+  margin-bottom:14px;
+}
+
+.cta-box p{
+  max-width:680px;
+  margin:0 auto 24px;
+  color:var(--text-soft);
+  font-size:18px;
+}
+
+.footer{
+  padding:26px 0 40px;
+  text-align:center;
+  color:var(--text-soft);
+  font-size:14px;
+}
+
+@media(max-width:980px){
+  .hero-grid,.steps-grid,.offers,.faq-grid{
+    grid-template-columns:1fr;
+  }
+  .offer-card.featured{
+    transform:none;
+  }
+}
+
+@media(max-width:640px){
+  .hero{
+    padding:32px 0 40px;
+  }
+
+  .section{
+    padding:48px 0;
+  }
+
+  .hero,
+  .hero h1,
+  .hero p,
+  .text-card,
+  .text-card h3,
+  .text-card p,
+  .center-title,
+  .step-card,
+  .offer-card,
+  .faq-item,
+  .cta-box,
+  .footer {
+    text-align:center;
+  }
+
+  .hero p,
+  .center-title p,
+  .cta-box p,
+  .text-card p {
+    font-size:16px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .btn{
+    width:100%;
+    max-width:340px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .text-card h3{
+    font-size:24px;
+  }
+
+  .check-item{
+    justify-content:center;
+    text-align:left;
+  }
+
+  .step-number{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .offer-card .btn{
+    width:100%;
+    max-width:100%;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <h1>O cartão patriota com parabéns na voz de Bolsonaro 🇧🇷</h1>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1>O cartão patriota com parabéns na voz de Bolsonaro 🇧🇷</h1>
 
-          <p>
-            Um presente criativo para quem ama o Brasil. Ao abrir o cartão, a mensagem começa automaticamente.
-          </p>
-
-          <p style="font-weight:700; margin-top:10px;">
-            🇧🇷 Brasil acima de tudo. Deus acima de todos.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#ofertas" class="btn btn-primary">Quero meu cartão patriota 🇧🇷</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <!-- TROQUE POR UMA IMAGEM OU GIF -->
-          <!-- Exemplo:
-          <img src="SEU-LINK-DA-IMAGEM.jpg" alt="Cartão patriota com áudio" style="border-radius:18px;">
-          -->
-          <div class="media-placeholder">
-            Adicione aqui a imagem principal do cartão
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="explicacao">
-    <div class="container">
-      <div class="text-card">
-        <h3>Veja a surpresa que acontece quando o cartão é aberto</h3>
         <p>
-          Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está dentro do próprio cartão. Basta abrir… e a mensagem começa automaticamente.
+          Um presente criativo para quem ama o Brasil. Ao abrir o cartão, a mensagem começa automaticamente.
         </p>
 
-        <div class="check-list">
-          <div class="check-item"><span>✓</span> A surpresa acontece na hora em que o cartão é aberto</div>
-          <div class="check-item"><span>✓</span> Não precisa de celular ou aplicativo</div>
-          <div class="check-item"><span>✓</span> Muito mais marcante que um cartão comum</div>
-          <div class="check-item"><span>✓</span> Perfeito para gravar a reação de quem recebe</div>
+        <div class="hero-buttons">
+          <a href="#ofertas" class="btn btn-primary">Quero meu cartão patriota 🇧🇷</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">
+          Adicione aqui a imagem principal do cartão
+        </div>
+
+        <div class="patriot-seal">
+          🇧🇷 Brasil acima de tudo • Deus acima de todos
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="como-funciona">
-    <div class="container">
-      <div class="center-title">
-        <h2>Simples, rápido e marcante</h2>
-        <p>Um presente simples que cria uma surpresa inesquecível.</p>
-      </div>
+<section class="section" id="explicacao">
+  <div class="container">
+    <div class="text-card">
+      <h3>Veja a surpresa que acontece quando o cartão é aberto</h3>
 
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Escolha seu cartão patriota</h3>
-          <p>
-            Selecione a quantidade ideal para presentear alguém especial.
-          </p>
+      <p>
+        Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está dentro do próprio cartão. Basta abrir… e a mensagem começa automaticamente.
+      </p>
+
+      <div class="check-list">
+        <div class="check-item">
+          <span>✓</span>
+          A surpresa acontece na hora em que o cartão é aberto
         </div>
 
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Receba em casa e entregue</h3>
-          <p>
-            O cartão chega pronto para presentear. Basta entregar para a pessoa certa.
-          </p>
+        <div class="check-item">
+          <span>✓</span>
+          Não precisa de celular ou aplicativo
         </div>
 
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Ao abrir, a mensagem toca</h3>
-          <p>
-            A mensagem começa automaticamente e transforma o presente em uma lembrança muito mais marcante.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="ofertas">
-    <div class="container">
-      <div class="center-title">
-        <h2>Escolha sua oferta</h2>
-        <p>Leve mais de um cartão e surpreenda ainda mais patriotas.</p>
-        <p style="font-weight:700; color:#9a7b37;">
-          Produção limitada.
-        </p>
-      </div>
-
-      <div class="offers">
-        <div class="offer-card">
-          <h3>1 Cartão</h3>
-          <p>Ideal para surpreender alguém especial</p>
-          <div class="price">R$59 <small>/ unidade</small></div>
-
-          <div class="offer-features">
-            <div>1 cartão com áudio</div>
-            <div>Produto físico</div>
-            <div>Compra segura</div>
-          </div>
-
-          <a href="LINK_DO_CHECKOUT_1_UNIDADE" class="btn btn-secondary">
-            Comprar 1 unidade
-          </a>
+        <div class="check-item">
+          <span>✓</span>
+          Muito mais marcante que um cartão comum
         </div>
 
-        <div class="offer-card featured">
-          <div class="tag">Mais vendido</div>
-          <h3>2 Cartões</h3>
-          <p>Melhor custo-benefício para presentear mais pessoas</p>
-          <div class="price">R$99 <small>/ kit</small></div>
-
-          <div class="offer-features">
-            <div>2 cartões com áudio</div>
-            <div>Economia por unidade</div>
-            <div>Ótimo para presentear mais pessoas</div>
-          </div>
-
-          <a href="LINK_DO_CHECKOUT_2_UNIDADES" class="btn btn-primary">
-            Comprar 2 unidades
-          </a>
-        </div>
-
-        <div class="offer-card">
-          <h3>3 Cartões</h3>
-          <p>Perfeito para surpreender várias pessoas</p>
-          <div class="price">R$129 <small>/ kit</small></div>
-
-          <div class="offer-features">
-            <div>3 cartões com áudio</div>
-            <div>Maior economia</div>
-            <div>Perfeito para várias ocasiões</div>
-          </div>
-
-          <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
-            Comprar 3 unidades
-          </a>
+        <div class="check-item">
+          <span>✓</span>
+          Perfeito para gravar a reação de quem recebe
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="center-title">
-        <h2>Perguntas frequentes</h2>
-        <p>Tire suas dúvidas antes de comprar.</p>
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="center-title">
+      <h2>Simples, rápido e marcante</h2>
+      <p>Um presente simples que cria uma surpresa inesquecível.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Escolha seu cartão patriota</h3>
+        <p>Selecione a quantidade ideal para presentear alguém especial.</p>
       </div>
 
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>Como o áudio funciona?</h3>
-          <p>
-            O cartão possui um sistema de áudio embutido. Quando ele é aberto, a mensagem começa automaticamente.
-          </p>
-        </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Receba em casa e entregue</h3>
+        <p>O cartão chega pronto para presentear. Basta entregar para a pessoa certa.</p>
+      </div>
 
-        <div class="faq-item">
-          <h3>Precisa de celular ou aplicativo?</h3>
-          <p>
-            Não. Todo o funcionamento acontece no próprio cartão.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>É um produto físico?</h3>
-          <p>
-            Sim. O cartão é enviado para o endereço informado no momento da compra.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Posso mandar direto para quem vou presentear?</h3>
-          <p>
-            Sim. Basta informar corretamente o endereço de entrega no checkout.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Qual o prazo de envio?</h3>
-          <p>
-            O prazo pode ser exibido no checkout conforme o CEP do destinatário e sua logística configurada.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>O pagamento é seguro?</h3>
-          <p>
-            Sim. O processamento do pagamento acontece em ambiente protegido, conforme a plataforma de checkout utilizada.
-          </p>
-        </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Ao abrir, a mensagem toca</h3>
+        <p>A mensagem começa automaticamente e transforma o presente em uma lembrança muito mais marcante.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cta-final">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Um presente patriota simples e impossível de esquecer 🇧🇷</h2>
-        <p>
-          Surpreenda alguém especial com um cartão que fala no momento em que é aberto.
-        </p>
+<section class="section" id="ofertas">
+  <div class="container">
+    <div class="center-title">
+      <h2>Escolha sua oferta</h2>
+      <p>Leve mais de um cartão e surpreenda ainda mais patriotas.</p>
+    </div>
 
-        <a href="LINK_PRINCIPAL_DE_COMPRA" class="btn btn-primary">
-          Garantir meu cartão patriota 🇧🇷
+    <div class="offers">
+      <div class="offer-card">
+        <h3>1 Cartão</h3>
+        <p>Ideal para surpreender alguém especial</p>
+        <div class="price">R$59</div>
+
+        <a href="LINK_DO_CHECKOUT_1_UNIDADE" class="btn btn-secondary">
+          Comprar 1 unidade
+        </a>
+      </div>
+
+      <div class="offer-card featured">
+        <div class="tag">Mais vendido</div>
+        <h3>2 Cartões</h3>
+        <p>Melhor custo-benefício</p>
+        <div class="price">R$99</div>
+
+        <a href="LINK_DO_CHECKOUT_2_UNIDADES" class="btn btn-primary">
+          Comprar 2 unidades
+        </a>
+      </div>
+
+      <div class="offer-card">
+        <h3>3 Cartões</h3>
+        <p>Perfeito para presentear mais pessoas</p>
+        <div class="price">R$129</div>
+
+        <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
+          Comprar 3 unidades
         </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="container">
-      <p><strong>Sua marca aqui</strong> • Todos os direitos reservados</p>
+<section class="section" id="faq">
+  <div class="container">
+    <div class="center-title">
+      <h2>Perguntas frequentes</h2>
+      <p>Tire suas dúvidas antes de comprar.</p>
     </div>
-  </footer>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Como o áudio funciona?</h3>
+        <p>O cartão possui um sistema de áudio embutido. Quando ele é aberto, a mensagem começa automaticamente.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Precisa de celular ou aplicativo?</h3>
+        <p>Não. Todo o funcionamento acontece no próprio cartão.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>É um produto físico?</h3>
+        <p>Sim. O cartão é enviado para o endereço informado no momento da compra.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Posso mandar direto para quem vou presentear?</h3>
+        <p>Sim. Basta informar corretamente o endereço de entrega no checkout.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Qual o prazo de envio?</h3>
+        <p>O prazo pode ser exibido no checkout conforme o CEP do destinatário e sua logística configurada.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>O pagamento é seguro?</h3>
+        <p>Sim. O processamento do pagamento acontece em ambiente protegido, conforme a plataforma de checkout utilizada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Um presente patriota simples e impossível de esquecer 🇧🇷</h2>
+
+      <p>
+        Surpreenda alguém especial com um cartão que fala no momento em que é aberto.
+      </p>
+
+      <a href="#ofertas" class="btn btn-primary">
+        Garantir meu cartão patriota 🇧🇷
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p><strong>Sua marca aqui</strong> • Todos os direitos reservados</p>
+  </div>
+</footer>
 
 </body>
 </html>
