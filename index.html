@@ -164,42 +164,14 @@
       font-size: 18px;
     }
 
-    .proof-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .video-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .video-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 2px dashed #c7b99f;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(154, 123, 55, 0.08), rgba(31, 75, 63, 0.08));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--text-soft);
-      font-weight: 700;
-    }
-
     .text-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 28px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .text-card h3 {
@@ -234,27 +206,41 @@
       line-height: 1;
     }
 
-    .benefits {
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .benefit-card {
+    .step-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 26px;
-      text-align: center;
+      text-align: left;
     }
 
-    .benefit-card h3 {
+    .step-number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(154, 123, 55, 0.12);
+      color: var(--secondary-dark);
+      font-weight: 800;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .step-card h3 {
       font-size: 22px;
       margin-bottom: 10px;
     }
 
-    .benefit-card p {
+    .step-card p {
       color: var(--text-soft);
     }
 
@@ -395,8 +381,7 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .proof-grid,
-      .benefits,
+      .steps-grid,
       .offers,
       .faq-grid {
         grid-template-columns: 1fr;
@@ -439,13 +424,6 @@
 </head>
 <body>
 
-  <!--
-    INSTRUÇÕES:
-    1) Troque os links dos botões.
-    2) Substitua os placeholders por imagem e vídeo reais.
-    3) Pode manter tudo em um único arquivo index.html.
-  -->
-
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -459,7 +437,6 @@
 
           <div class="hero-buttons">
             <a href="#ofertas" class="btn btn-primary">Comprar agora</a>
-            <a href="#demonstracao" class="btn btn-secondary">Ver demonstração</a>
           </div>
         </div>
 
@@ -476,69 +453,54 @@
     </div>
   </section>
 
-  <section class="section" id="demonstracao">
+  <section class="section" id="explicacao">
     <div class="container">
-      <div class="proof-grid">
-        <div class="video-box">
-          <!-- TROQUE POR VÍDEO -->
-          <!-- Exemplo:
-          <iframe
-            src="SEU-LINK-DO-VIDEO"
-            title="Vídeo de demonstração"
-            width="100%"
-            height="100%"
-            style="border:0; aspect-ratio:16/9; border-radius:18px;"
-            allowfullscreen>
-          </iframe>
-          -->
-          <div class="video-placeholder">
-            Adicione aqui o vídeo de demonstração
-          </div>
-        </div>
+      <div class="text-card">
+        <h3>Veja o que acontece quando o cartão é aberto</h3>
+        <p>
+          Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está
+          no próprio cartão. Ao abrir, a mensagem começa automaticamente.
+        </p>
 
-        <div class="text-card">
-          <h3>Veja o que acontece quando o cartão é aberto</h3>
-          <p>
-            Nada de aplicativo, QR Code ou configuração complicada. O sistema de áudio já está
-            no próprio cartão. Ao abrir, a mensagem começa automaticamente.
-          </p>
-
-          <div class="check-list">
-            <div class="check-item"><span>✓</span> A surpresa acontece na hora</div>
-            <div class="check-item"><span>✓</span> Fácil de entender e de presentear</div>
-            <div class="check-item"><span>✓</span> Muito mais marcante que um cartão comum</div>
-            <div class="check-item"><span>✓</span> Ótimo para gravar a reação de quem recebe</div>
-          </div>
+        <div class="check-list">
+          <div class="check-item"><span>✓</span> A surpresa acontece na hora</div>
+          <div class="check-item"><span>✓</span> Fácil de entender e de presentear</div>
+          <div class="check-item"><span>✓</span> Muito mais marcante que um cartão comum</div>
+          <div class="check-item"><span>✓</span> Ótimo para gravar a reação de quem recebe</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="como-funciona">
     <div class="container">
       <div class="center-title">
-        <h2>Por que esse cartão chama atenção?</h2>
+        <h2>Simples, rápido e surpreendente</h2>
+        <p>Um presente pensado para causar impacto sem complicação.</p>
       </div>
 
-      <div class="benefits">
-        <div class="benefit-card">
-          <h3>Surpreende na hora</h3>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Você escolhe o cartão</h3>
           <p>
-            A pessoa abre o cartão e a mensagem começa automaticamente.
+            Selecione a quantidade ideal para presentear uma ou mais pessoas em ocasiões especiais.
           </p>
         </div>
 
-        <div class="benefit-card">
-          <h3>Fácil de entender</h3>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Recebe e entrega</h3>
           <p>
-            Não precisa de aplicativo, celular ou qualquer configuração.
+            O cartão chega pronto para presentear. É só entregar para a pessoa certa no momento certo.
           </p>
         </div>
 
-        <div class="benefit-card">
-          <h3>Mais marcante</h3>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Ao abrir, o áudio toca</h3>
           <p>
-            Muito mais memorável do que um cartão comum.
+            A mensagem começa automaticamente e transforma o presente em uma lembrança muito mais marcante.
           </p>
         </div>
       </div>
