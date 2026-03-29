@@ -141,12 +141,40 @@ img{
   text-align:center;
 }
 
-.media-placeholder{
+/* CARROSSEL */
+.hero-carousel{
+  position:relative;
   width:100%;
   aspect-ratio:4/5;
-  border:2px dashed #c7b99f;
+  overflow:hidden;
   border-radius:18px;
   background:linear-gradient(135deg,rgba(31,75,63,0.07),rgba(154,123,55,0.08));
+}
+
+.carousel-track{
+  display:flex;
+  width:200%;
+  height:100%;
+  transition:transform 0.45s ease;
+}
+
+.carousel-slide{
+  width:50%;
+  height:100%;
+  flex-shrink:0;
+  position:relative;
+}
+
+.carousel-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.carousel-placeholder{
+  width:100%;
+  height:100%;
+  border:2px dashed #c7b99f;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -154,6 +182,61 @@ img{
   padding:24px;
   color:var(--text-soft);
   font-weight:700;
+}
+
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.92);
+  color:var(--primary);
+  font-size:22px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.14);
+  z-index:2;
+}
+
+.carousel-btn:hover{
+  background:#fff;
+}
+
+.carousel-btn.prev{
+  left:12px;
+}
+
+.carousel-btn.next{
+  right:12px;
+}
+
+.carousel-dots{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  z-index:2;
+}
+
+.carousel-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.55);
+  cursor:pointer;
+}
+
+.carousel-dot.active{
+  background:#fff;
 }
 
 .seal-section{
@@ -528,6 +611,12 @@ img{
     font-size:14px;
     padding:10px 14px;
   }
+
+  .carousel-btn{
+    width:38px;
+    height:38px;
+    font-size:20px;
+  }
 }
 </style>
 </head>
@@ -550,8 +639,37 @@ img{
       </div>
 
       <div class="card">
-        <div class="media-placeholder">
-          Adicione aqui a imagem principal do cartão
+        <div class="hero-carousel" id="heroCarousel">
+          <button class="carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <!-- TROQUE pela primeira foto -->
+              <div class="carousel-placeholder">
+                Adicione aqui a FOTO 1 do cartão
+              </div>
+              <!-- Exemplo:
+              <img src="foto1.jpg" alt="Cartão patriota foto 1">
+              -->
+            </div>
+
+            <div class="carousel-slide">
+              <!-- TROQUE pela segunda foto -->
+              <div class="carousel-placeholder">
+                Adicione aqui a FOTO 2 do cartão
+              </div>
+              <!-- Exemplo:
+              <img src="foto2.jpg" alt="Cartão patriota foto 2">
+              -->
+            </div>
+          </div>
+
+          <button class="carousel-btn next" type="button" aria-label="Próxima foto">›</button>
+
+          <div class="carousel-dots">
+            <button class="carousel-dot active" type="button" aria-label="Ir para foto 1"></button>
+            <button class="carousel-dot" type="button" aria-label="Ir para foto 2"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -733,6 +851,11 @@ img{
       </div>
 
       <div class="faq-item">
+        <h3>Posso adicionar uma mensagem personalizada de áudio no final?</h3>
+        <p>Sim. Além do áudio principal do cartão, você pode incluir uma mensagem personalizada ao final, com a voz de quem quiser. É o toque final perfeito para tornar o presente ainda mais especial, único e emocionante para quem recebe.</p>
+      </div>
+
+      <div class="faq-item">
         <h3>Qual o prazo de envio?</h3>
         <p>O prazo pode ser exibido no checkout conforme o CEP.</p>
       </div>
@@ -766,6 +889,44 @@ img{
     <p><strong>Cartão Patriota</strong> • Todos os direitos reservados</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  const carousel = document.getElementById('heroCarousel');
+  const track = carousel.querySelector('.carousel-track');
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.carousel-btn.prev');
+  const nextBtn = carousel.querySelector('.carousel-btn.next');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 50}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  prevBtn.addEventListener('click', function () {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', function () {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', function () {
+      currentIndex = index;
+      updateCarousel();
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
