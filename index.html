@@ -11,625 +11,901 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cartão Patriota | O cartão que fala ao abrir</title>
+<meta name="description" content="Um cartão de aniversário premium com pop-up 3D e áudio automático. A surpresa acontece no momento em que é aberto." />
 
-<title>Cartão Patriota com Áudio | O cartão que fala ao abrir</title>
-
-<meta
-  name="description"
-  content="O cartão patriota que fala quando é aberto. Um presente criativo e surpreendente para quem ama o Brasil."
-/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg:#f7f3eb;
-  --white:#ffffff;
-  --text:#1f2937;
-  --text-soft:#5f6b7a;
-  --primary:#1f4b3f;
-  --primary-dark:#17372e;
-  --secondary:#9a7b37;
-  --secondary-dark:#7b612c;
-  --border:#ddd2bf;
-  --shadow:0 12px 30px rgba(0,0,0,0.08);
-  --radius:22px;
-  --max-width:1120px;
+  --verde: #0d3b2e;
+  --verde-medio: #1a5c45;
+  --verde-claro: #2a7a5c;
+  --ouro: #c8972a;
+  --ouro-claro: #e8b84b;
+  --ouro-pale: #f5e6c0;
+  --cream: #faf6ee;
+  --cream-dark: #f0e9d8;
+  --text: #1a1a1a;
+  --text-soft: #5a5a5a;
+  --white: #ffffff;
+  --border: rgba(200,151,42,0.25);
+  --shadow-gold: 0 20px 60px rgba(200,151,42,0.15);
+  --shadow-dark: 0 20px 60px rgba(0,0,0,0.12);
+  --radius: 20px;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ─── TYPOGRAPHY ─── */
+.display { font-family: 'Playfair Display', serif; }
+
+/* ─── LAYOUT ─── */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* ─── BADGE TOP ─── */
+.top-badge {
+  background: var(--verde);
+  color: var(--ouro-claro);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── HERO ─── */
+.hero {
+  padding: 60px 0 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(200,151,42,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ouro-pale);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ouro);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 22px;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.06;
+  color: var(--verde);
+  margin-bottom: 20px;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 20px;
-}
-
-.section{
-  padding:64px 0;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:54px;
-  padding:0 24px;
-  border-radius:999px;
-  font-size:16px;
-  font-weight:700;
-  transition:0.2s ease;
-  cursor:pointer;
-  border:none;
-  text-align:center;
-}
-
-.btn-primary{
-  background:var(--primary);
-  color:#fff;
-  box-shadow:0 10px 24px rgba(31,75,63,0.2);
-}
-
-.btn-primary:hover{
-  background:var(--primary-dark);
-  transform:translateY(-1px);
-}
-
-.btn-secondary{
-  background:var(--secondary);
-  color:#fff;
-  box-shadow:0 10px 24px rgba(154,123,55,0.2);
-}
-
-.btn-secondary:hover{
-  background:var(--secondary-dark);
-  transform:translateY(-1px);
-}
-
-.hero{
-  padding:50px 0 34px;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:34px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:clamp(34px,5vw,58px);
-  line-height:1.05;
-  margin-bottom:18px;
-}
-
-.hero p{
-  font-size:19px;
-  color:var(--text-soft);
-  margin-bottom:28px;
-  max-width:580px;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-}
-
-.hero-buttons-below{
-  margin-top:24px;
-  display:flex;
-  justify-content:center;
-}
-
-.card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:18px;
-  text-align:center;
-}
-
-.hero-carousel{
-  position:relative;
-  width:100%;
-  aspect-ratio:4/5;
-  overflow:hidden;
-  border-radius:18px;
-  background:linear-gradient(135deg,rgba(31,75,63,0.07),rgba(154,123,55,0.08));
-}
-
-.carousel-track{
-  display:flex;
-  width:200%;
-  height:100%;
-  transition:transform 0.45s ease;
-}
-
-.carousel-slide{
-  width:50%;
-  height:100%;
-  flex-shrink:0;
-  position:relative;
-}
-
-.carousel-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.carousel-placeholder{
-  width:100%;
-  height:100%;
-  border:2px dashed #c7b99f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:24px;
-  color:var(--text-soft);
-  font-weight:700;
-}
-
-.carousel-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:50%;
-  background:rgba(255,255,255,0.92);
-  color:var(--primary);
-  font-size:22px;
-  font-weight:700;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 20px rgba(0,0,0,0.14);
-  z-index:2;
-}
-
-.carousel-btn:hover{
-  background:#fff;
-}
-
-.carousel-btn.prev{
-  left:12px;
-}
-
-.carousel-btn.next{
-  right:12px;
-}
-
-.carousel-dots{
-  position:absolute;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px;
-  z-index:2;
-}
-
-.carousel-dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,0.55);
-  cursor:pointer;
-}
-
-.carousel-dot.active{
-  background:#fff;
-}
-
-.seal-section{
-  padding:0 0 18px;
-}
-
-.seal-wrap{
-  text-align:center;
-}
-
-.patriot-seal{
-  display:inline-block;
-  padding:10px 18px;
-  font-weight:700;
-  font-size:15px;
-  color:#1f4b3f;
-  background:rgba(154,123,55,0.12);
-  border:1px solid rgba(154,123,55,0.35);
-  border-radius:999px;
-  text-align:center;
-}
-
-.center-title{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 34px;
-}
-
-.center-title h2{
-  font-size:clamp(28px,4vw,42px);
-  margin-bottom:12px;
-  line-height:1.1;
-}
-
-.center-title p{
-  color:var(--text-soft);
-  font-size:18px;
-}
-
-.text-card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:28px;
-  max-width:900px;
-  margin:0 auto;
-}
-
-.text-card h3{
-  font-size:28px;
-  line-height:1.15;
-  margin-bottom:14px;
-}
-
-.text-card p{
-  color:var(--text-soft);
-  margin-bottom:16px;
-  font-size:17px;
-}
-
-.check-list{
-  display:grid;
-  gap:12px;
-  margin-top:10px;
-}
-
-.check-item{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  color:var(--text);
-  font-weight:600;
-}
-
-.check-item span{
-  color:var(--primary);
-  font-size:18px;
-  flex-shrink:0;
-}
-
-.steps-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.step-card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:26px;
-  text-align:left;
-}
-
-.step-number{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(154,123,55,0.12);
-  color:var(--secondary-dark);
-  font-weight:800;
-  margin-bottom:16px;
-  font-size:18px;
-}
-
-.step-card h3{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.step-card p{
-  color:var(--text-soft);
-}
-
-.offers{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
-  align-items:stretch;
-}
-
-.offer-card{
-  display:flex;
-  flex-direction:column;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:32px;
-  box-shadow:var(--shadow);
-  padding:28px 36px 34px;
-  min-height:100%;
-}
-
-.offer-card.featured{
-  border:2px solid var(--primary);
-  transform:translateY(-4px);
-}
-
-.offer-badge{
-  display:inline-flex;
-  align-self:flex-end;
-  background:var(--primary);
-  color:#fff;
-  font-size:12px;
-  font-weight:800;
-  padding:10px 16px;
-  border-radius:999px;
-  text-transform:uppercase;
-  letter-spacing:0.02em;
-  margin-bottom:18px;
-}
-
-.offer-card h3{
-  font-size:34px;
-  line-height:1.05;
-  margin-bottom:18px;
-  color:#17253c;
-}
-
-.offer-card p{
-  color:#556781;
-  margin-bottom:30px;
-  font-size:17px;
-}
-
-.price{
-  display:flex;
-  align-items:flex-end;
-  gap:12px;
-  margin-bottom:34px;
-  line-height:1;
-}
-
-.price strong{
-  font-size:64px;
-  font-weight:800;
-  letter-spacing:-0.03em;
-  color:#1f2a3d;
-}
-
-.price span{
-  font-size:18px;
-  font-weight:700;
-  color:#556781;
-  margin-bottom:8px;
-}
-
-.offer-features{
-  display:grid;
-  gap:14px;
-  margin-bottom:34px;
-  color:#556781;
-  font-weight:700;
-  font-size:17px;
-}
-
-.offer-features div::before{
-  content:"• ";
-  color:var(--secondary);
-  font-weight:900;
-}
-
-.offer-card .btn{
-  margin-top:auto;
-  width:100%;
-  min-height:68px;
-  font-size:18px;
-}
-
-.faq-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.faq-item{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  padding:22px;
-}
-
-.faq-item h3{
-  font-size:18px;
-  margin-bottom:10px;
-}
-
-.faq-item p{
-  color:var(--text-soft);
-}
-
-.cta-final{
-  padding-top:20px;
-  padding-bottom:70px;
-}
-
-.cta-box{
-  max-width:860px;
-  margin:0 auto;
-  text-align:center;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:28px;
-  box-shadow:var(--shadow);
-  padding:42px 24px;
-}
+.hero h1 em {
+  font-style: italic;
+  color: var(--ouro);
+}
 
-.cta-box h2{
-  font-size:clamp(30px,4vw,46px);
-  line-height:1.08;
-  margin-bottom:14px;
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-soft);
+  margin-bottom: 34px;
+  max-width: 500px;
+  line-height: 1.65;
 }
 
-.cta-box p{
-  max-width:680px;
-  margin:0 auto 24px;
-  color:var(--text-soft);
-  font-size:18px;
+.hero-sub strong {
+  color: var(--text);
 }
 
-.footer{
-  padding:26px 0 40px;
-  text-align:center;
-  color:var(--text-soft);
-  font-size:14px;
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--ouro) 0%, #a87820 100%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 17px 36px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(200,151,42,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
 }
 
-@media(max-width:980px){
-  .hero-grid,.steps-grid,.offers,.faq-grid{
-    grid-template-columns:1fr;
+.btn-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(200,151,42,0.45);
+}
+
+.btn-hero .arrow {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.btn-hero:hover .arrow {
+  transform: translateX(4px);
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.trust-item .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+  display: inline-block;
+}
+
+/* ─── CAROUSEL ─── */
+.hero-visual {
+  position: relative;
+}
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--verde) 0%, var(--verde-medio) 100%);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(200,151,42,0.2);
+}
+
+.carousel-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.carousel-slide {
+  width: 50%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.carousel-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  font-size: 15px;
+  gap: 12px;
+}
+
+.carousel-placeholder .ph-icon {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.2s;
+}
+
+.carousel-btn:hover { background: rgba(255,255,255,0.25); }
+.carousel-btn.prev { left: 14px; }
+.carousel-btn.next { right: 14px; }
+
+.carousel-dots {
+  position: absolute;
+  left: 50%; bottom: 18px;
+  transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 2;
+}
+
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--ouro-claro);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.float-badge {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--verde);
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── DIVIDER ─── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+  margin: 0;
+  opacity: 0.4;
+}
+
+/* ─── SECTION ─── */
+.section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ouro);
+  margin-bottom: 14px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 2px;
+  background: var(--ouro);
+  border-radius: 1px;
+}
+
+.center-title {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 52px;
+}
+
+.center-title .section-label {
+  justify-content: center;
+}
+
+.center-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.1;
+  color: var(--verde);
+  margin-bottom: 14px;
+}
+
+.center-title p {
+  color: var(--text-soft);
+  font-size: 18px;
+}
+
+/* ─── DESTAQUE (texto + checks) ─── */
+.destaque-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--verde);
+  border-radius: 28px;
+  padding: 52px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.destaque-wrap::before {
+  content: '🇧🇷';
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 220px;
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.destaque-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.destaque-left h2 em {
+  color: var(--ouro-claro);
+  font-style: italic;
+}
+
+.destaque-left p {
+  color: rgba(255,255,255,0.65);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.check-list {
+  display: grid;
+  gap: 14px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.check-icon {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(200,151,42,0.2);
+  border: 1px solid rgba(200,151,42,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ouro-claro);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* ─── COMO FUNCIONA ─── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 34px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.step-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ouro), var(--ouro-claro));
+}
+
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--ouro-pale);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.step-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--verde);
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ─── OFERTA ÚNICA ─── */
+.offer-section {
+  background: linear-gradient(135deg, var(--verde) 0%, #0a2e22 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-section::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,151,42,0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.offer-section .center-title h2 {
+  color: var(--white);
+}
+
+.offer-section .center-title p {
+  color: rgba(255,255,255,0.6);
+}
+
+.offer-card {
+  max-width: 580px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 28px;
+  padding: 42px 44px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ouro), var(--ouro-claro), var(--ouro));
+}
+
+.offer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.offer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--verde);
+  line-height: 1.2;
+}
+
+.offer-title span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-soft);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.offer-badge {
+  background: var(--verde);
+  color: var(--ouro-claro);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.price-block {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.price-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1;
+}
+
+.price-prefix {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--verde);
+  margin-top: 6px;
+}
+
+.price-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--verde);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.price-per {
+  font-size: 14px;
+  color: var(--text-soft);
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.price-note {
+  font-size: 14px;
+  color: var(--text-soft);
+  text-align: right;
+  line-height: 1.5;
+}
+
+.price-note strong {
+  display: block;
+  font-size: 22px;
+  color: var(--ouro);
+  font-weight: 700;
+}
+
+.offer-features {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.offer-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.feature-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ouro);
+  flex-shrink: 0;
+}
+
+.btn-offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--ouro) 0%, #a87820 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(200,151,42,0.4);
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+}
+
+.btn-offer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 50px rgba(200,151,42,0.5);
+}
+
+.offer-guarantee {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ─── FAQ ─── */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  transition: border-color 0.2s;
+}
+
+.faq-item:hover {
+  border-color: rgba(200,151,42,0.5);
+}
+
+.faq-item h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--verde);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.faq-item h3::before {
+  content: 'P';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: var(--ouro-pale);
+  color: var(--ouro);
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.faq-item p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.7;
+  padding-left: 34px;
+}
+
+/* ─── CTA FINAL ─── */
+.cta-final {
+  padding: 80px 0;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, var(--verde) 0%, #0a2e22 100%);
+  border-radius: 28px;
+  padding: 64px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8972a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cta-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.cta-box h2 em {
+  color: var(--ouro-claro);
+  font-style: italic;
+}
+
+.cta-box p {
+  color: rgba(255,255,255,0.65);
+  font-size: 18px;
+  max-width: 580px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+
+.cta-box .btn-hero {
+  position: relative;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 28px 0 40px;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.footer strong {
+  color: var(--verde);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-grid > * {
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-grid > *:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero-grid,
+  .destaque-wrap,
+  .steps-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
   }
 
-  .offer-card.featured{
-    transform:none;
+  .hero-grid { gap: 40px; }
+
+  .destaque-wrap {
+    padding: 40px 28px;
+  }
+
+  .destaque-wrap::before {
+    font-size: 140px;
+    right: -10px;
+    bottom: -20px;
+  }
+
+  .offer-card {
+    padding: 32px 28px;
+  }
+
+  .price-block {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .price-note {
+    text-align: center;
+  }
+
+  .price-main {
+    justify-content: center;
   }
 }
 
-@media(max-width:640px){
-  .hero{
-    padding:32px 0 20px;
-  }
+@media (max-width: 600px) {
+  .hero { padding: 40px 0 60px; }
+  .section { padding: 60px 0; }
+  .offer-section { padding: 60px 0; }
+  .cta-final { padding: 60px 0; }
+  .cta-box { padding: 48px 24px; }
 
-  .section{
-    padding:48px 0;
-  }
+  .hero h1 { font-size: 34px; }
+  .hero-sub { font-size: 16px; }
+  .btn-hero { width: 100%; font-size: 16px; }
+  .hero-trust { justify-content: center; }
+  .center-title p { font-size: 16px; }
 
-  .hero,
-  .hero h1,
-  .hero p,
-  .text-card,
-  .text-card h3,
-  .text-card p,
-  .center-title,
-  .step-card,
-  .offer-card,
-  .faq-item,
-  .cta-box,
-  .footer {
-    text-align:center;
-  }
+  .step-card { padding: 26px 22px; }
+  .step-number { font-size: 40px; }
 
-  .hero p,
-  .center-title p,
-  .cta-box p,
-  .text-card p {
-    font-size:16px;
-  }
+  .faq-grid { gap: 14px; }
+  .faq-item { padding: 20px 20px; }
+  .faq-item p { padding-left: 0; }
 
-  .hero-buttons{
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .btn{
-    width:100%;
-    max-width:340px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .text-card h3{
-    font-size:24px;
-  }
-
-  .check-item{
-    justify-content:center;
-    text-align:left;
-  }
-
-  .step-number{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .offer-card .btn{
-    max-width:100%;
-  }
-
-  .offer-card{
-    padding:24px 22px 28px;
-    border-radius:26px;
-  }
-
-  .offer-badge{
-    align-self:center;
-    margin-bottom:16px;
-  }
-
-  .offer-card h3{
-    font-size:28px;
-  }
-
-  .price{
-    justify-content:center;
-  }
-
-  .price strong{
-    font-size:52px;
-  }
-
-  .offer-features{
-    text-align:left;
-  }
-
-  .patriot-seal{
-    font-size:14px;
-    padding:10px 14px;
-  }
-
-  .carousel-btn{
-    width:38px;
-    height:38px;
-    font-size:20px;
-  }
+  .price-value { font-size: 56px; }
+  .float-badge { font-size: 12px; padding: 8px 16px; }
 }
 </style>
 </head>
@@ -640,38 +916,62 @@ img{
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- TOP BADGE -->
+<div class="top-badge">
+  🇧🇷 Produto Exclusivo • Frete Grátis para todo o Brasil • Áudio automático ao abrir
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div>
-        <h1>O cartão patriota com parabéns na voz de Bolsonaro 🇧🇷</h1>
 
-        <p>
-          Um presente criativo para quem ama o Brasil. Ao abrir o cartão, a mensagem começa automaticamente.
+      <!-- ESQUERDA -->
+      <div>
+        <div class="hero-eyebrow">
+          🇧🇷 Cartão Premium com Áudio
+        </div>
+
+        <h1>
+          Um presente de aniversário que ninguém vai <em>esquecer</em>
+        </h1>
+
+        <p class="hero-sub">
+          Ao abrir o cartão, uma <strong>estrutura interna que se ergue sozinha</strong> e o áudio começa automaticamente — criando uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
         </p>
+
+        <a href="#oferta" class="btn-hero">
+          Quero presentear agora
+          <span class="arrow">→</span>
+        </a>
+
+        <div class="hero-trust">
+          <div class="trust-item"><span class="dot"></span> Produto físico</div>
+          <div class="trust-item"><span class="dot"></span> Frete grátis</div>
+          <div class="trust-item"><span class="dot"></span> Compra 100% segura</div>
+        </div>
       </div>
 
-      <div class="card">
+      <!-- DIREITA — Carousel -->
+      <div class="hero-visual">
         <div class="hero-carousel" id="heroCarousel">
           <button class="carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
 
           <div class="carousel-track">
             <div class="carousel-slide">
               <div class="carousel-placeholder">
+                <span class="ph-icon">📸</span>
                 Adicione aqui a FOTO 1 do cartão
               </div>
-              <!-- Exemplo:
-              <img src="foto1.jpg" alt="Cartão patriota foto 1">
-              -->
+              <!-- <img src="foto1.jpg" alt="Cartão Patriota — foto 1"> -->
             </div>
 
             <div class="carousel-slide">
               <div class="carousel-placeholder">
+                <span class="ph-icon">📸</span>
                 Adicione aqui a FOTO 2 do cartão
               </div>
-              <!-- Exemplo:
-              <img src="foto2.jpg" alt="Cartão patriota foto 2">
-              -->
+              <!-- <img src="foto2.jpg" alt="Cartão Patriota — foto 2"> -->
             </div>
           </div>
 
@@ -682,232 +982,218 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="carousel-dot" type="button" aria-label="Ir para foto 2"></button>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="hero-buttons-below">
-      <a href="#ofertas" class="btn btn-primary">Quero meu cartão patriota 🇧🇷</a>
+        <div class="float-badge">
+          🎵 &nbsp;Áudio ativa automaticamente ao abrir
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="seal-section">
-  <div class="container">
-    <div class="seal-wrap">
-      <div class="patriot-seal">
-        🇧🇷 Brasil acima de tudo • Deus acima de todos
-      </div>
-    </div>
-  </div>
-</section>
+<div class="gold-divider"></div>
 
+<!-- ═══════════ DESTAQUE ═══════════ -->
 <section class="section" id="explicacao">
   <div class="container">
-    <div class="text-card">
-      <h3>Isso não é só um cartão… é coisa de patriota 🇧🇷</h3>
-
-      <p>
-        Um presente pra quem acredita no Brasil de verdade. Assim que abre, a mensagem começa automaticamente com uma voz firme, marcante e impossível de ignorar.
-      </p>
+    <div class="destaque-wrap">
+      <div class="destaque-left">
+        <h2>Não é só um cartão.<br><em>É um momento.</em></h2>
+        <p>
+          Desenvolvido para criar uma experiência que mistura emoção e surpresa. Assim que a pessoa abre o cartão, o mecanismo interno é ativado: uma estrutura decorativa se ergue de dentro do cartão e o áudio começa a tocar — tudo ao mesmo tempo.
+        </p>
+      </div>
 
       <div class="check-list">
         <div class="check-item">
-          <span>✓</span>
-          A surpresa acontece na hora em que o cartão é aberto
+          <div class="check-icon">✓</div>
+          Estrutura decorativa que se ergue sozinha ao abrir o cartão
         </div>
-
         <div class="check-item">
-          <span>✓</span>
-          Mensagem que todo patriota reconhece
+          <div class="check-icon">✓</div>
+          Áudio patriótico que toca automaticamente
         </div>
-
         <div class="check-item">
-          <span>✓</span>
-          Presente ideal pra quem é de direita
+          <div class="check-icon">✓</div>
+          Espaço interno para você escrever sua mensagem antes de entregar
         </div>
-
         <div class="check-item">
-          <span>✓</span>
+          <div class="check-icon">✓</div>
+          Opção de mensagem de áudio personalizada no final
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
           Perfeito para gravar a reação de quem recebe
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          Ideal para presentear quem ama o Brasil
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="como-funciona">
+<!-- ═══════════ COMO FUNCIONA ═══════════ -->
+<section class="section" id="como-funciona" style="padding-top:0;">
   <div class="container">
     <div class="center-title">
-      <h2>Simples, rápido e marcante</h2>
-      <p>Um presente simples que cria uma surpresa inesquecível.</p>
+      <div class="section-label">Como funciona</div>
+      <h2>Do pedido à surpresa em 3 etapas</h2>
+      <p>Simples para você, inesquecível para quem recebe.</p>
     </div>
 
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-number">1</div>
-        <h3>Escolha seu cartão patriota</h3>
-        <p>Selecione a quantidade ideal para presentear alguém especial.</p>
+        <div class="step-number">01</div>
+        <h3>Faça seu pedido</h3>
+        <p>Finalize a compra com segurança. Ao final, você será redirecionado ao WhatsApp para enviar a mensagem que deseja escrever no cartão.</p>
       </div>
 
       <div class="step-card">
-        <div class="step-number">2</div>
-        <h3>Receba em casa e entregue</h3>
-        <p>O cartão chega pronto para presentear. Basta escrever sua mensagem e entregar para a pessoa certa.</p>
+        <div class="step-number">02</div>
+        <h3>Receba em casa</h3>
+        <p>O cartão chega pronto para presentear, com tudo configurado. Você escreve sua mensagem no espaço interno e entrega pessoalmente para a pessoa especial.</p>
       </div>
 
       <div class="step-card">
-        <div class="step-number">3</div>
-        <h3>Ao abrir, a mensagem toca</h3>
-        <p>A mensagem começa automaticamente e transforma o presente em uma lembrança muito mais marcante.</p>
+        <div class="step-number">03</div>
+        <h3>A surpresa acontece</h3>
+        <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e o áudio começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="ofertas">
+<!-- ═══════════ OFERTA ═══════════ -->
+<section class="offer-section" id="oferta">
   <div class="container">
     <div class="center-title">
-      <h2>Escolha sua oferta</h2>
-      <p>Leve mais de um cartão e surpreenda ainda mais patriotas.</p>
+      <div class="section-label" style="color:var(--ouro-claro);">Oferta exclusiva</div>
+      <h2>Garanta o seu Cartão Patriota</h2>
+      <p>Um presente premium, único e impossível de esquecer.</p>
     </div>
 
-    <div class="offers">
-      <div class="offer-card">
-        <h3>1 Cartão</h3>
-        <p>Ideal para presentear uma pessoa</p>
-
-        <div class="price">
-          <strong>R$59</strong>
-          <span>/ unidade</span>
+    <div class="offer-card">
+      <div class="offer-top">
+        <div class="offer-title">
+          Cartão Patriota Premium
+          <span>Com estrutura decorativa interna + áudio automático</span>
         </div>
-
-        <div class="offer-features">
-          <div>1 cartão com áudio</div>
-          <div>Produto físico</div>
-          <div>Compra segura</div>
-        </div>
-
-        <a href="LINK_DO_CHECKOUT_1_UNIDADE" class="btn btn-secondary">
-          Comprar 1 unidade
-        </a>
+        <div class="offer-badge">Mais vendido</div>
       </div>
 
-      <div class="offer-card featured">
-        <div class="offer-badge">MAIS VENDIDO</div>
-
-        <h3>2 Cartões</h3>
-        <p>Melhor custo-benefício</p>
-
-        <div class="price">
-          <strong>R$99</strong>
-          <span>/ kit</span>
+      <div class="price-block">
+        <div class="price-main">
+          <span class="price-prefix">R$</span>
+          <span class="price-value">59</span>
         </div>
-
-        <div class="offer-features">
-          <div>2 cartões com áudio</div>
-          <div>Economia por unidade</div>
-          <div>Ótimo para presentear mais pessoas</div>
+        <div class="price-note">
+          <strong>Frete Grátis 🎉</strong>
+          Entrega em todo o Brasil
         </div>
-
-        <a href="LINK_DO_CHECKOUT_2_UNIDADES" class="btn btn-primary">
-          Comprar 2 unidades
-        </a>
       </div>
 
-      <div class="offer-card">
-        <h3>3 Cartões</h3>
-        <p>Para quem quer levar mais</p>
-
-        <div class="price">
-          <strong>R$129</strong>
-          <span>/ kit</span>
-        </div>
-
-        <div class="offer-features">
-          <div>3 cartões com áudio</div>
-          <div>Maior economia</div>
-          <div>Perfeito para várias ocasiões</div>
-        </div>
-
-        <a href="LINK_DO_CHECKOUT_3_UNIDADES" class="btn btn-secondary">
-          Comprar 3 unidades
-        </a>
+      <div class="offer-features">
+        <div class="offer-feature"><span class="feature-dot"></span> Cartão físico com acabamento premium</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Estrutura interna que se ergue ao abrir</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Áudio patriótico automático</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Espaço para você escrever sua mensagem</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Opção de mensagem de áudio personalizada</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Frete grátis para todo o Brasil</div>
       </div>
+
+      <a href="LINK_DO_CHECKOUT" class="btn-offer">
+        Garantir meu Cartão Patriota 🇧🇷
+      </a>
+
+      <p class="offer-guarantee">
+        🔒 Pagamento 100% seguro &nbsp;•&nbsp; Frete grátis &nbsp;•&nbsp; Produto físico
+      </p>
     </div>
   </div>
 </section>
 
+<!-- ═══════════ FAQ ═══════════ -->
 <section class="section" id="faq">
   <div class="container">
     <div class="center-title">
-      <h2>Perguntas frequentes</h2>
-      <p>Tire suas dúvidas antes de comprar.</p>
+      <div class="section-label">Perguntas frequentes</div>
+      <h2>Ainda tem dúvidas?</h2>
+      <p>Respondemos o que você precisa saber antes de comprar.</p>
     </div>
 
     <div class="faq-grid">
       <div class="faq-item">
         <h3>Como o áudio funciona?</h3>
-        <p>O cartão possui um sistema de áudio embutido, com bateria interna, que pode ser recarregada sempre. Quando ele é aberto, a mensagem começa automaticamente.</p>
+        <p>O cartão possui um sistema de áudio embutido com bateria interna recarregável. Quando é aberto, a mensagem começa automaticamente — sem precisar apertar nada.</p>
       </div>
 
       <div class="faq-item">
         <h3>Precisa de celular ou aplicativo?</h3>
-        <p>Não. Todo o funcionamento acontece no próprio cartão.</p>
+        <p>Não. Todo o funcionamento acontece no próprio cartão, de forma autônoma. Basta abrir.</p>
       </div>
 
       <div class="faq-item">
         <h3>É um produto físico?</h3>
-        <p>Sim. O cartão é enviado para o endereço informado no momento da compra.</p>
+        <p>Sim. O cartão é produzido e enviado para o endereço informado no momento da compra.</p>
       </div>
 
       <div class="faq-item">
-        <h3>Posso mandar direto para quem vou presentear?</h3>
-        <p>Sim. Basta informar corretamente o endereço de entrega no checkout. E enviar para nós a mensagem que deseja escrever. Ao final da compra, você será redirecionado para o nosso Whatsapp.</p>
+        <h3>Posso enviar direto para quem vou presentear?</h3>
+        <p>O cartão é enviado para o seu endereço. Assim você recebe, escreve sua mensagem no espaço interno e entrega pessoalmente para o aniversariante — tornando o momento ainda mais especial.</p>
       </div>
 
       <div class="faq-item">
-        <h3>Posso adicionar uma mensagem personalizada de áudio no final?</h3>
-        <p>Sim. Além do áudio principal do cartão, você pode incluir uma mensagem personalizada ao final, com a voz de quem quiser. É o toque final perfeito para tornar o presente ainda mais especial, único e emocionante para quem recebe.</p>
+        <h3>Posso adicionar uma mensagem de áudio personalizada?</h3>
+        <p>Sim. Além do áudio principal, você pode incluir uma mensagem ao final com a voz de quem quiser — tornando o presente ainda mais único e emocionante.</p>
       </div>
 
       <div class="faq-item">
-        <h3>Qual o prazo de envio?</h3>
-        <p>O prazo pode ser exibido no checkout conforme o CEP.</p>
+        <h3>Qual o prazo de entrega?</h3>
+        <p>O prazo de entrega é calculado conforme o seu CEP no momento do checkout.</p>
       </div>
 
       <div class="faq-item">
         <h3>O pagamento é seguro?</h3>
-        <p>Sim. O processamento do pagamento acontece em ambiente protegido, conforme a plataforma de checkout utilizada.</p>
+        <p>Sim. O processamento acontece em ambiente 100% protegido, pela plataforma de checkout utilizada.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>O que é a estrutura interna do cartão?</h3>
+        <p>Ao abrir o cartão, uma peça decorativa interna se ergue automaticamente — como um cenário em miniatura que se monta sozinho. É o elemento de surpresa visual do cartão, combinado com o áudio que toca ao mesmo tempo.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════ CTA FINAL ═══════════ -->
 <section class="cta-final">
   <div class="container">
     <div class="cta-box">
-      <h2>Um presente patriota simples e impossível de esquecer 🇧🇷</h2>
-
-      <p>
-        Surpreenda alguém especial com um cartão que fala no momento em que é aberto.
-      </p>
-
-      <a href="#ofertas" class="btn btn-primary">
-        Garantir meu cartão patriota 🇧🇷
+      <h2>Dê um presente que vai<br><em>ficar na memória para sempre</em></h2>
+      <p>Um cartão que combina emoção, surpresa e identidade patriótica — em um único presente inesquecível.</p>
+      <a href="#oferta" class="btn-hero">
+        Garantir meu Cartão Patriota 🇧🇷
+        <span class="arrow">→</span>
       </a>
     </div>
   </div>
 </section>
 
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="footer">
   <div class="container">
-    <p><strong>Cartão Patriota</strong> • Todos os direitos reservados</p>
+    <p><strong>Cartão Patriota</strong> &nbsp;•&nbsp; Todos os direitos reservados</p>
   </div>
 </footer>
 
 <script>
 (function () {
   const carousel = document.getElementById('heroCarousel');
+  if (!carousel) return;
+
   const track = carousel.querySelector('.carousel-track');
   const slides = carousel.querySelectorAll('.carousel-slide');
   const prevBtn = carousel.querySelector('.carousel-btn.prev');
@@ -915,31 +1201,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const dots = carousel.querySelectorAll('.carousel-dot');
 
   let currentIndex = 0;
-  const totalSlides = slides.length;
+  const total = slides.length;
 
-  function updateCarousel() {
+  function go(index) {
+    currentIndex = (index + total) % total;
     track.style.transform = `translateX(-${currentIndex * 50}%)`;
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentIndex);
-    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
   }
 
-  prevBtn.addEventListener('click', function () {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateCarousel();
-  });
+  prevBtn.addEventListener('click', () => go(currentIndex - 1));
+  nextBtn.addEventListener('click', () => go(currentIndex + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
 
-  nextBtn.addEventListener('click', function () {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateCarousel();
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', function () {
-      currentIndex = index;
-      updateCarousel();
-    });
-  });
+  // Auto-play
+  let timer = setInterval(() => go(currentIndex + 1), 4000);
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(currentIndex + 1), 4000); });
 })();
 </script>
 
