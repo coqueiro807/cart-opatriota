@@ -42,7 +42,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   background: var(--cream);
@@ -50,6 +53,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -740,31 +744,6 @@ body::before {
   font-weight: 700;
   color: var(--verde);
   margin-bottom: 10px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.faq-item h3::before {
-  content: 'P';
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px; height: 24px;
-  border-radius: 6px;
-  background: var(--ouro-pale);
-  color: var(--ouro);
-  font-size: 13px;
-  font-weight: 800;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.faq-item p {
-  color: var(--text-soft);
-  font-size: 15px;
-  line-height: 1.7;
-  padding-left: 34px;
 }
 
 /* ─── CTA FINAL ─── */
@@ -902,7 +881,11 @@ body::before {
 
   .faq-grid { gap: 14px; }
   .faq-item { padding: 20px 20px; }
-  .faq-item p { padding-left: 0; }
+.faq-item p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
 
   .price-value { font-size: 56px; }
   .float-badge { font-size: 12px; padding: 8px 16px; }
@@ -918,7 +901,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- TOP BADGE -->
 <div class="top-badge">
-  🇧🇷 Produto Exclusivo • Frete Grátis para todo o Brasil • Áudio automático ao abrir
+  🚚 FRETE GRÁTIS PARA TODO O BRASIL
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
@@ -929,7 +912,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ESQUERDA -->
       <div>
         <div class="hero-eyebrow">
-          🇧🇷 Cartão Premium com Áudio
+          🇧🇷 Com a voz de Bolsonaro
         </div>
 
         <h1>
@@ -937,7 +920,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </h1>
 
         <p class="hero-sub">
-          Ao abrir o cartão, uma <strong>estrutura interna que se ergue sozinha</strong> e o áudio começa automaticamente — criando uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
+          Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa — uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
         </p>
 
         <a href="#oferta" class="btn-hero">
@@ -1001,7 +984,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="destaque-left">
         <h2>Não é só um cartão.<br><em>É um momento.</em></h2>
         <p>
-          Desenvolvido para criar uma experiência que mistura emoção e surpresa. Assim que a pessoa abre o cartão, o mecanismo interno é ativado: uma estrutura decorativa se ergue de dentro do cartão e o áudio começa a tocar — tudo ao mesmo tempo.
+          Desenvolvido para criar uma experiência que mistura emoção e surpresa. Assim que a pessoa abre o cartão, o mecanismo interno é ativado: uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa a tocar — tudo ao mesmo tempo.
         </p>
       </div>
 
@@ -1012,7 +995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="check-item">
           <div class="check-icon">✓</div>
-          Áudio patriótico que toca automaticamente
+          Áudio com a voz de Bolsonaro que toca automaticamente
         </div>
         <div class="check-item">
           <div class="check-icon">✓</div>
@@ -1060,7 +1043,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step-card">
         <div class="step-number">03</div>
         <h3>A surpresa acontece</h3>
-        <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e o áudio começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
+        <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
       </div>
     </div>
   </div>
@@ -1098,7 +1081,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="offer-features">
         <div class="offer-feature"><span class="feature-dot"></span> Cartão físico com acabamento premium</div>
         <div class="offer-feature"><span class="feature-dot"></span> Estrutura interna que se ergue ao abrir</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Áudio patriótico automático</div>
+        <div class="offer-feature"><span class="feature-dot"></span> Voz de Bolsonaro que toca automaticamente ao abrir</div>
         <div class="offer-feature"><span class="feature-dot"></span> Espaço para você escrever sua mensagem</div>
         <div class="offer-feature"><span class="feature-dot"></span> Opção de mensagem de áudio personalizada</div>
         <div class="offer-feature"><span class="feature-dot"></span> Frete grátis para todo o Brasil</div>
@@ -1127,7 +1110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-grid">
       <div class="faq-item">
         <h3>Como o áudio funciona?</h3>
-        <p>O cartão possui um sistema de áudio embutido com bateria interna recarregável. Quando é aberto, a mensagem começa automaticamente — sem precisar apertar nada.</p>
+        <p>O cartão possui um sistema de áudio embutido com bateria interna recarregável. Quando é aberto, a voz de Bolsonaro começa automaticamente — sem precisar apertar nada.</p>
       </div>
 
       <div class="faq-item">
