@@ -608,59 +608,48 @@ body::before {
   white-space: nowrap;
 }
 
-.price-block {
-  background: var(--cream);
-  border-radius: 16px;
-  padding: 24px 28px;
+.offer-price-hero {
+  text-align: center;
+  padding: 32px 0 28px;
+  border-bottom: 1px solid var(--border);
   margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
 
-.price-main {
-  display: flex;
+.offer-price-row {
+  display: inline-flex;
   align-items: flex-start;
-  gap: 6px;
+  gap: 2px;
   line-height: 1;
+  margin-bottom: 12px;
 }
 
-.price-prefix {
+.offer-currency {
   font-size: 22px;
   font-weight: 700;
   color: var(--verde);
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
-.price-value {
+.offer-amount {
   font-family: 'Playfair Display', serif;
-  font-size: 72px;
+  font-size: 80px;
   font-weight: 900;
   color: var(--verde);
   letter-spacing: -0.04em;
   line-height: 1;
 }
 
-.price-per {
-  font-size: 14px;
-  color: var(--text-soft);
-  align-self: flex-end;
-  margin-bottom: 10px;
-}
-
-.price-note {
-  font-size: 14px;
-  color: var(--text-soft);
-  text-align: right;
-  line-height: 1.5;
-}
-
-.price-note strong {
-  display: block;
-  font-size: 22px;
-  color: var(--ouro);
+.offer-cents {
+  font-size: 28px;
   font-weight: 700;
+  color: var(--verde);
+  margin-top: 12px;
+}
+
+.offer-shipping {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--verde-claro);
 }
 
 .offer-features {
@@ -846,20 +835,6 @@ body::before {
 
   .offer-card {
     padding: 32px 28px;
-  }
-
-  .price-block {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
-
-  .price-note {
-    text-align: center;
-  }
-
-  .price-main {
-    justify-content: center;
   }
 }
 
@@ -1059,32 +1034,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="offer-card">
-      <div class="offer-top">
-        <div class="offer-title">
-          Cartão Patriota Premium
-          <span>Com estrutura decorativa interna + áudio automático</span>
-        </div>
-        <div class="offer-badge">Mais vendido</div>
-      </div>
 
-      <div class="price-block">
-        <div class="price-main">
-          <span class="price-prefix">R$</span>
-          <span class="price-value">59</span>
+      <div class="offer-price-hero">
+        <div class="offer-price-row">
+          <span class="offer-currency">R$</span>
+          <span class="offer-amount">89</span>
+          <span class="offer-cents">,90</span>
         </div>
-        <div class="price-note">
-          <strong>Frete Grátis 🎉</strong>
-          Entrega em todo o Brasil
-        </div>
-      </div>
-
-      <div class="offer-features">
-        <div class="offer-feature"><span class="feature-dot"></span> Cartão físico com acabamento premium</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Estrutura interna que se ergue ao abrir</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Voz de Bolsonaro que toca automaticamente ao abrir</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Espaço para você escrever sua mensagem</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Opção de mensagem de áudio personalizada</div>
-        <div class="offer-feature"><span class="feature-dot"></span> Frete grátis para todo o Brasil</div>
+        <div class="offer-shipping">🚚 Frete grátis para todo o Brasil</div>
       </div>
 
       <a href="LINK_DO_CHECKOUT" class="btn-offer">
@@ -1092,8 +1049,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <p class="offer-guarantee">
-        🔒 Pagamento 100% seguro &nbsp;•&nbsp; Frete grátis &nbsp;•&nbsp; Produto físico
+        🔒 Pagamento 100% seguro &nbsp;•&nbsp; Entrega em todo o Brasil
       </p>
+
     </div>
   </div>
 </section>
