@@ -244,13 +244,13 @@ body::before {
 
 .carousel-track {
   display: flex;
-  width: 200%;
+  width: 300%;
   height: 100%;
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 .carousel-slide {
-  width: 50%;
+  width: 33.333%;
   height: 100%;
   flex-shrink: 0;
 }
@@ -735,6 +735,12 @@ body::before {
   margin-bottom: 10px;
 }
 
+.faq-item p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 /* ─── CTA FINAL ─── */
 .cta-final {
   padding: 80px 0;
@@ -856,11 +862,6 @@ body::before {
 
   .faq-grid { gap: 14px; }
   .faq-item { padding: 20px 20px; }
-.faq-item p {
-  color: var(--text-soft);
-  font-size: 15px;
-  line-height: 1.7;
-}
 
   .price-value { font-size: 56px; }
   .float-badge { font-size: 12px; padding: 8px 16px; }
@@ -895,7 +896,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </h1>
 
         <p class="hero-sub">
-          Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
+          Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa — uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
         </p>
 
         <a href="#oferta" class="btn-hero">
@@ -921,10 +922,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="ph-icon">📸</span>
                 Adicione aqui a FOTO 1 do cartão
               </div>
-              <!-- <img src="foto1.jpg" alt="Cartão Patriota — foto 1"> -->
+              <!-- <img src="https://imgur.com/a/pCuly6K" alt="Cartão Patriota — foto 1"> -->
             </div>
 
-            <div class="carousel-track">
             <div class="carousel-slide">
               <div class="carousel-placeholder">
                 <span class="ph-icon">📸</span>
@@ -947,6 +947,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="carousel-dots">
             <button class="carousel-dot active" type="button" aria-label="Ir para foto 1"></button>
             <button class="carousel-dot" type="button" aria-label="Ir para foto 2"></button>
+            <button class="carousel-dot" type="button" aria-label="Ir para foto 3"></button>
           </div>
         </div>
 
@@ -968,7 +969,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="destaque-left">
         <h2>Não é só um cartão.<br><em>É um momento.</em></h2>
         <p>
-          Desenvolvido para criar uma experiência que mistura emoção e surpresa. Assim que a pessoa abre o cartão, o mecanismo interno é ativado: uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa a tocar tudo ao mesmo tempo.
+          Desenvolvido para criar uma experiência que mistura emoção e surpresa. Assim que a pessoa abre o cartão, o mecanismo interno é ativado: uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa a tocar — tudo ao mesmo tempo.
         </p>
       </div>
 
@@ -1027,7 +1028,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step-card">
         <div class="step-number">03</div>
         <h3>A surpresa acontece</h3>
-        <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa automaticamente. Tudo ao mesmo tempo uma experiência que ninguém espera.</p>
+        <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
       </div>
     </div>
   </div>
@@ -1077,7 +1078,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-grid">
       <div class="faq-item">
         <h3>Como o áudio funciona?</h3>
-        <p>O cartão possui um sistema de áudio embutido com bateria interna recarregável. Quando é aberto, a voz de Bolsonaro começa automaticamente sem precisar apertar nada.</p>
+        <p>O cartão possui um sistema de áudio embutido com bateria interna recarregável. Quando é aberto, a voz de Bolsonaro começa automaticamente — sem precisar apertar nada.</p>
       </div>
 
       <div class="faq-item">
@@ -1112,7 +1113,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="faq-item">
         <h3>O que é a estrutura interna do cartão?</h3>
-        <p>Ao abrir o cartão, uma peça decorativa interna se ergue automaticamente como um cenário em miniatura que se monta sozinho. É o elemento de surpresa visual do cartão, combinado com o áudio que toca ao mesmo tempo.</p>
+        <p>Ao abrir o cartão, uma peça decorativa interna se ergue automaticamente — como um cenário em miniatura que se monta sozinho. É o elemento de surpresa visual do cartão, combinado com o áudio que toca ao mesmo tempo.</p>
       </div>
     </div>
   </div>
@@ -1151,11 +1152,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const dots = carousel.querySelectorAll('.carousel-dot');
 
   let currentIndex = 0;
-  const total = slides.length;
+  const total = slides.length; // 3
 
   function go(index) {
     currentIndex = (index + total) % total;
-    track.style.transform = `translateX(-${currentIndex * 50}%)`;
+    // Each slide is 33.333% of the track width (which is 300%)
+    // So moving by currentIndex * (100% / 3) of track = currentIndex * 33.333%
+    track.style.transform = `translateX(-${currentIndex * (100 / total)}%)`;
     dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
   }
 
