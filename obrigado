@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pedido Confirmado | Cartão Patriota</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ouro: #c8972a;
+    --ouro-claro: #e8b84b;
+    --verde: #0d3b2e;
+    --text: #1a1a1a;
+    --text-soft: #7a7a7a;
+    --bg: #f9f7f4;
+    --white: #ffffff;
+    --border: #ebebeb;
+    --radius: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  /* ── CHECK ANIMADO ── */
+  .check-wrap {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 32px;
+    animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .check-circle {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #a5d6a7;
+  }
+
+  .check-icon {
+    width: 36px; height: 36px;
+    stroke: #2e7d32;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: draw-check 0.5s 0.35s ease forwards;
+  }
+
+  @keyframes draw-check {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* ── CARD PRINCIPAL ── */
+  .card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 52px 48px;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+    animation: fade-up 0.6s 0.1s ease both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .tag {
+    display: inline-block;
+    background: #f0faf1;
+    color: #2e7d32;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid #c8e6c9;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--ouro);
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-soft);
+    line-height: 1.65;
+    max-width: 420px;
+    margin: 0 auto 36px;
+  }
+
+  /* ── DIVISOR ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 0 32px;
+  }
+
+  /* ── PRÓXIMOS PASSOS ── */
+  .steps-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: left;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    animation: fade-up 0.5s ease both;
+  }
+
+  .step:last-child { border-bottom: none; }
+  .step:nth-child(1) { animation-delay: 0.3s; }
+  .step:nth-child(2) { animation-delay: 0.42s; }
+  .step:nth-child(3) { animation-delay: 0.54s; }
+  .step:nth-child(4) { animation-delay: 0.66s; }
+
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ouro);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-body strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .step-body p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.55;
+  }
+
+  /* ── RODAPÉ DO CARD ── */
+  .card-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .card-footer a {
+    color: var(--ouro);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .card-footer a:hover { text-decoration: underline; }
+
+  /* ── RODAPÉ DA PÁGINA ── */
+  .page-footer {
+    margin-top: 28px;
+    font-size: 13px;
+    color: #bbb;
+    animation: fade-up 0.5s 0.7s ease both;
+  }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 600px) {
+    .card { padding: 36px 24px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="check-wrap">
+    <div class="check-circle">
+      <svg class="check-icon" viewBox="0 0 24 24">
+        <polyline points="4 13 9 18 20 7"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="tag">✓ Pedido confirmado</div>
+
+    <h1>Obrigado pela<br>sua compra, <em>Patriota!</em></h1>
+
+    <p class="subtitle">
+      Seu pedido foi recebido com sucesso. Agora é só aguardar — veja o que acontece a partir de agora:
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="steps-title">O que acontece agora</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Confirmação por e-mail</strong>
+          <p>Você receberá um e-mail com os detalhes do seu pedido em instantes. Verifique também a caixa de spam.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Produção em até 3 dias úteis</strong>
+          <p>Seu Cartão Patriota é produzido com cuidado após a confirmação do pagamento.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Envio e rastreamento</strong>
+          <p>Assim que o cartão for enviado, você receberá o código de rastreamento para acompanhar a entrega.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>A surpresa acontece</strong>
+          <p>Entregue pessoalmente e prepare-se para gravar a reação — vai ser inesquecível. 🇧🇷</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      Dúvidas? Entre em contato pelo
+      <a href="https://wa.me/5500000000000" target="_blank">WhatsApp</a>
+      — estamos aqui para ajudar.
+    </div>
+
+  </div>
+
+  <p class="page-footer">Cartão Patriota &nbsp;•&nbsp; Todos os direitos reservados</p>
+
+</body>
+</html>
