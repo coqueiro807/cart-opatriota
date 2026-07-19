@@ -865,6 +865,280 @@ body::before {
 
   .price-value { font-size: 56px; }
   .float-badge { font-size: 12px; padding: 8px 16px; }
+
+  .sticky-cta { display: flex; }
+  body { padding-bottom: 74px; }
+}
+
+/* ─── HERO: PREÇO RÁPIDO ─── */
+.hero-price-quick {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.hero-price-quick .amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--verde);
+}
+
+.hero-price-quick .parcel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.hero-price-quick .old-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ouro);
+  background: var(--ouro-pale);
+  border-radius: 999px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ─── HERO: VÍDEO ─── */
+.hero-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--verde) 0%, var(--verde-medio) 100%);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(200,151,42,0.2);
+}
+
+.hero-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-video-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  gap: 14px;
+  color: rgba(255,255,255,0.55);
+}
+
+.hero-video-placeholder .play-ring {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--ouro-claro);
+}
+
+.hero-video-placeholder strong {
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+}
+
+.hero-video-placeholder span {
+  font-size: 13px;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+.video-play-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+/* ─── MINI GALERIA (fotos, movida da hero) ─── */
+.gallery-mini {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* ─── BENEFIT CARDS (destaque, com ícones) ─── */
+.benefit-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.benefit-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.benefit-card .icon {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: rgba(200,151,42,0.2);
+  border: 1px solid rgba(200,151,42,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.benefit-card p {
+  color: rgba(255,255,255,0.85);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.destaque-cta {
+  margin-top: 28px;
+}
+
+/* ─── PROVA SOCIAL ─── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  position: relative;
+}
+
+.review-stars {
+  color: var(--ouro);
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.review-card p {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--ouro-pale);
+  color: var(--ouro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.review-author-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--verde);
+}
+
+.review-author-tag {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.review-placeholder-tag {
+  position: absolute;
+  top: -10px; right: 16px;
+  background: var(--ouro-pale);
+  color: var(--ouro);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+/* ─── STICKY CTA MOBILE ─── */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 100;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.12);
+  padding: 10px 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-cta.visible {
+  transform: translateY(0);
+}
+
+.sticky-cta .sticky-price {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.sticky-cta .sticky-price strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--verde);
+}
+
+.sticky-cta a {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--ouro) 0%, #a87820 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(200,151,42,0.35);
+}
+
+@media (max-width: 900px) {
+  .benefit-cards { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -899,6 +1173,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa — uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
         </p>
 
+        <!-- PREÇO RÁPIDO: visível já na primeira dobra, sem precisar rolar a página -->
+        <div class="hero-price-quick">
+          <span class="amount">R$ 89,90</span>
+          <!-- EDITAR: ajuste a condição de parcelamento real da Yampi, se houver -->
+          <span class="parcel">no Pix ou cartão &nbsp;•&nbsp; frete grátis</span>
+        </div>
+
         <a href="#oferta" class="btn-hero">
           Quero presentear agora
           <span class="arrow">→</span>
@@ -911,31 +1192,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- DIREITA — Carousel -->
+      <!-- DIREITA — Vídeo demonstrativo do produto -->
       <div class="hero-visual">
-        <div class="hero-carousel" id="heroCarousel">
-          <button class="carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+        <div class="hero-video-wrap" id="heroVideoWrap">
+          <div class="video-play-badge">▶ &nbsp;Veja funcionando</div>
 
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="https://i.imgur.com/s1YRcWp.jpeg" alt="Cartão Patriota — foto 1">
-            </div>
+          <!--
+            EDITAR AQUI: assim que você gravar o vídeo, troque o bloco do placeholder abaixo por:
 
-            <div class="carousel-slide">
-              <img src="https://i.imgur.com/8qdN6u4.jpeg" alt="Cartão Patriota — foto 2">
-            </div>
-
-            <div class="carousel-slide">
-              <img src="https://i.imgur.com/qRTuPM2.jpeg" alt="Cartão Patriota — foto 3">
-            </div>
-          </div>
-
-          <button class="carousel-btn next" type="button" aria-label="Próxima foto">›</button>
-
-          <div class="carousel-dots">
-            <button class="carousel-dot active" type="button" aria-label="Ir para foto 1"></button>
-            <button class="carousel-dot" type="button" aria-label="Ir para foto 2"></button>
-            <button class="carousel-dot" type="button" aria-label="Ir para foto 3"></button>
+            <video controls playsinline poster="URL_DA_CAPA_DO_VIDEO">
+              <source src="URL_DO_SEU_VIDEO.mp4" type="video/mp4">
+            </video>
+          -->
+          <div class="hero-video-placeholder">
+            <div class="play-ring">▶</div>
+            <strong>Vídeo demonstrativo em breve</strong>
+            <span>Aqui vai entrar o vídeo mostrando o cartão abrindo e o áudio tocando automaticamente.</span>
           </div>
         </div>
 
@@ -961,32 +1233,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <div class="check-list">
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Estrutura decorativa que se ergue sozinha ao abrir o cartão
+      <div class="benefit-cards">
+        <div class="benefit-card">
+          <div class="icon">🪄</div>
+          <p>Estrutura decorativa que se ergue sozinha ao abrir</p>
         </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Áudio com a voz de Bolsonaro que toca automaticamente
+        <div class="benefit-card">
+          <div class="icon">🔊</div>
+          <p>Áudio com a voz de Bolsonaro toca automaticamente</p>
         </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Espaço interno para você escrever sua mensagem antes de entregar
+        <div class="benefit-card">
+          <div class="icon">✍️</div>
+          <p>Espaço interno para escrever sua mensagem</p>
         </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Opção de mensagem de áudio personalizada no final
+        <div class="benefit-card">
+          <div class="icon">🎙️</div>
+          <p>Opção de mensagem de áudio personalizada</p>
         </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Perfeito para gravar a reação de quem recebe
+        <div class="benefit-card">
+          <div class="icon">🎥</div>
+          <p>Perfeito para gravar a reação de quem recebe</p>
         </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          Ideal para presentear quem ama o Brasil
+        <div class="benefit-card">
+          <div class="icon">🇧🇷</div>
+          <p>Ideal para quem ama o Brasil</p>
         </div>
       </div>
+    </div>
+
+    <div class="destaque-cta" style="text-align:center;">
+      <a href="#oferta" class="btn-hero">
+        Quero o meu Cartão Patriota
+        <span class="arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1017,6 +1296,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="step-number">03</div>
         <h3>A surpresa acontece</h3>
         <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
+      </div>
+    </div>
+
+    <!-- Galeria de fotos do produto -->
+    <div class="gallery-mini" style="margin-top:48px;">
+      <div class="hero-carousel" id="galleryCarousel">
+        <button class="carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="https://i.imgur.com/s1YRcWp.jpeg" alt="Cartão Patriota — foto 1">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="https://i.imgur.com/8qdN6u4.jpeg" alt="Cartão Patriota — foto 2">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="https://i.imgur.com/qRTuPM2.jpeg" alt="Cartão Patriota — foto 3">
+          </div>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Próxima foto">›</button>
+
+        <div class="carousel-dots">
+          <button class="carousel-dot active" type="button" aria-label="Ir para foto 1"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para foto 2"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para foto 3"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROVA SOCIAL ═══════════ -->
+<section class="section" id="depoimentos" style="padding-top:0;">
+  <div class="container">
+    <div class="center-title">
+      <div class="section-label">Quem já recebeu</div>
+      <h2>O que dizem sobre o Cartão Patriota</h2>
+      <p>Experiências reais de quem já presenteou.</p>
+    </div>
+
+    <!-- EDITAR: substitua pelos depoimentos reais assim que você tiver. Marcado como placeholder para você não esquecer de trocar. -->
+    <div class="reviews-grid">
+      <div class="review-card">
+        <span class="review-placeholder-tag">Placeholder</span>
+        <div class="review-stars">★★★★★</div>
+        <p>"Depoimento real do cliente entra aqui. Substitua por um comentário verdadeiro sobre a reação de quem recebeu o cartão."</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-author-name">Nome do cliente</div>
+            <div class="review-author-tag">Comprou em [cidade]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <span class="review-placeholder-tag">Placeholder</span>
+        <div class="review-stars">★★★★★</div>
+        <p>"Depoimento real do cliente entra aqui. Substitua por um comentário verdadeiro sobre a reação de quem recebeu o cartão."</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-author-name">Nome do cliente</div>
+            <div class="review-author-tag">Comprou em [cidade]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <span class="review-placeholder-tag">Placeholder</span>
+        <div class="review-stars">★★★★★</div>
+        <p>"Depoimento real do cliente entra aqui. Substitua por um comentário verdadeiro sobre a reação de quem recebeu o cartão."</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-author-name">Nome do cliente</div>
+            <div class="review-author-tag">Comprou em [cidade]</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1088,33 +1449,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="faq-item">
-        <h3>É um produto físico?</h3>
-        <p>Sim. O cartão é produzido e enviado para o endereço informado no momento da compra.</p>
-      </div>
-
-      <div class="faq-item">
         <h3>Posso enviar direto para quem vou presentear?</h3>
-        <p>O cartão é enviado para o seu endereço, você escreve a mensagem e entrega pessoalmente. Prefere mandar direto para o aniversariante? Também fazemos isso: é só informar o endereço no checkout e nos enviar a mensagem pelo WhatsApp.</p>
+        <p>Sim. É só informar o endereço do presenteado no checkout e nos enviar a mensagem pelo WhatsApp.</p>
       </div>
 
       <div class="faq-item">
         <h3>Posso adicionar uma mensagem de áudio personalizada?</h3>
-        <p>Sim. Além do áudio principal, você pode incluir uma mensagem personalizada ao final com a voz de quem quiser. Essa opção está disponível no checkout por um valor adicional.</p>
+        <p>Sim, além do áudio principal, por um valor adicional no checkout, com a voz de quem você quiser.</p>
       </div>
 
       <div class="faq-item">
         <h3>Qual o prazo de entrega?</h3>
-        <p>O prazo de entrega é calculado conforme o seu CEP no momento do checkout.</p>
+        <p>O prazo é calculado automaticamente pelo seu CEP no momento do checkout.</p>
       </div>
 
       <div class="faq-item">
         <h3>O pagamento é seguro?</h3>
         <p>Sim. O processamento acontece em ambiente 100% protegido, pela plataforma de checkout utilizada.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>O que é a estrutura interna do cartão?</h3>
-        <p>Ao abrir o cartão, uma peça decorativa interna se ergue automaticamente — como um cenário em miniatura que se monta sozinho. É o elemento de surpresa visual do cartão, combinado com o áudio que toca ao mesmo tempo.</p>
       </div>
     </div>
   </div>
@@ -1141,9 +1492,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<!-- ═══════════ STICKY CTA (mobile) ═══════════ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-price">
+    A partir de
+    <strong>R$ 89,90</strong>
+  </div>
+  <a href="#oferta">Garantir agora</a>
+</div>
+
 <script>
+// Galeria de fotos (antigo carrossel do hero, agora na seção "Como funciona")
 (function () {
-  const carousel = document.getElementById('heroCarousel');
+  const carousel = document.getElementById('galleryCarousel');
   if (!carousel) return;
 
   const track = carousel.querySelector('.carousel-track');
@@ -1171,6 +1532,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let timer = setInterval(() => go(currentIndex + 1), 4000);
   carousel.addEventListener('mouseenter', () => clearInterval(timer));
   carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(currentIndex + 1), 4000); });
+})();
+
+// Sticky CTA (mobile): aparece depois que o visitante rola além do Hero,
+// some quando a seção de oferta já está visível (evita CTA duplicado na tela)
+(function () {
+  const sticky = document.getElementById('stickyCta');
+  const oferta = document.getElementById('oferta');
+  if (!sticky || !oferta) return;
+
+  function toggleSticky() {
+    const scrolledPastHero = window.scrollY > window.innerHeight * 0.6;
+    const ofertaRect = oferta.getBoundingClientRect();
+    const ofertaVisible = ofertaRect.top < window.innerHeight && ofertaRect.bottom > 0;
+
+    if (scrolledPastHero && !ofertaVisible) {
+      sticky.classList.add('visible');
+    } else {
+      sticky.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleSticky, { passive: true });
+  toggleSticky();
 })();
 </script>
 
