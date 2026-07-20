@@ -116,9 +116,13 @@ body::before {
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "top visual" "bottom visual";
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
+
+.hero-top { grid-area: top; }
+.hero-bottom { grid-area: bottom; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -230,6 +234,8 @@ body::before {
 /* ─── CAROUSEL ─── */
 .hero-visual {
   position: relative;
+  grid-area: visual;
+  align-self: center;
 }
 
 .hero-carousel {
@@ -820,14 +826,19 @@ body::before {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  .hero-grid,
   .destaque-wrap,
   .steps-grid,
   .faq-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-grid { gap: 40px; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "top" "visual" "bottom";
+    gap: 28px;
+  }
+
+  .hero-visual { align-self: auto; }
 
   .destaque-wrap {
     padding: 40px 28px;
@@ -1140,6 +1151,81 @@ body::before {
   .benefit-cards { grid-template-columns: 1fr; }
   .reviews-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── BARRA DE CONFIANÇA ─── */
+.trust-bar {
+  background: var(--cream-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.trust-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--verde);
+  letter-spacing: 0.01em;
+}
+
+.trust-bar-item .ic {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .trust-bar-row { gap: 18px 22px; }
+  .trust-bar-item { font-size: 12px; }
+}
+
+/* ─── AVALIAÇÃO RÁPIDA NO HERO ─── */
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.hero-rating .stars {
+  color: var(--ouro);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* ─── TÍTULO DENTRO DO BENEFIT CARD ─── */
+.benefit-card .txt strong {
+  display: block;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.benefit-card .txt p {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ─── SEÇÃO DEMONSTRAÇÃO ─── */
+.demo-cta-wrap {
+  text-align: center;
+  margin-top: 36px;
+}
 </style>
 </head>
 
@@ -1159,10 +1245,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="hero-grid">
 
-      <!-- ESQUERDA -->
-      <div>
+      <!-- TOPO — eyebrow, título e subtítulo -->
+      <div class="hero-top">
         <div class="hero-eyebrow">
-          🇧🇷 Com a voz de Bolsonaro
+          🇧🇷 Cartão Patriota — Com a voz de Bolsonaro
         </div>
 
         <h1>
@@ -1172,27 +1258,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="hero-sub">
           Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa — uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
         </p>
-
-        <!-- PREÇO RÁPIDO: visível já na primeira dobra, sem precisar rolar a página -->
-        <div class="hero-price-quick">
-          <span class="amount">R$ 89,90</span>
-          <!-- EDITAR: ajuste a condição de parcelamento real da Yampi, se houver -->
-          <span class="parcel">no Pix ou cartão &nbsp;•&nbsp; frete grátis</span>
-        </div>
-
-        <a href="#oferta" class="btn-hero">
-          Quero presentear agora
-          <span class="arrow">→</span>
-        </a>
-
-        <div class="hero-trust">
-          <div class="trust-item"><span class="dot"></span> Produto físico</div>
-          <div class="trust-item"><span class="dot"></span> Frete grátis</div>
-          <div class="trust-item"><span class="dot"></span> Compra 100% segura</div>
-        </div>
       </div>
 
-      <!-- DIREITA — Vídeo demonstrativo do produto -->
+      <!-- VÍDEO — logo abaixo do texto, ocupando a posição de maior destaque -->
       <div class="hero-visual">
         <div class="hero-video-wrap" id="heroVideoWrap">
           <div class="video-play-badge">▶ &nbsp;Veja funcionando</div>
@@ -1216,6 +1284,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
+      <!-- BASE — avaliação, preço, CTA e confiança -->
+      <div class="hero-bottom">
+        <!-- EDITAR: assim que tiver avaliações reais, troque o texto "novidade" pelo número de avaliações -->
+        <div class="hero-rating">
+          <span class="stars">★★★★★</span>
+          <span>Lançamento novo &nbsp;•&nbsp; primeiras unidades disponíveis</span>
+        </div>
+
+        <!-- PREÇO RÁPIDO: visível já na primeira dobra, sem precisar rolar a página -->
+        <div class="hero-price-quick">
+          <span class="amount">R$ 89,90</span>
+          <!-- EDITAR: ajuste a condição de parcelamento real da Yampi, se houver -->
+          <span class="parcel">no Pix ou cartão &nbsp;•&nbsp; frete grátis</span>
+        </div>
+
+        <a href="#oferta" class="btn-hero">
+          Quero presentear agora
+          <span class="arrow">→</span>
+        </a>
+
+        <div class="hero-trust">
+          <div class="trust-item"><span class="dot"></span> Produto físico</div>
+          <div class="trust-item"><span class="dot"></span> Frete grátis</div>
+          <div class="trust-item"><span class="dot"></span> Compra 100% segura</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BARRA DE CONFIANÇA ═══════════ -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-row">
+      <div class="trust-bar-item"><span class="ic">🔒</span> Compra segura</div>
+      <div class="trust-bar-item"><span class="ic">🚚</span> Frete para todo o Brasil</div>
+      <div class="trust-bar-item"><span class="ic">🏆</span> Produto premium</div>
+      <div class="trust-bar-item"><span class="ic">🛡️</span> Garantia de satisfação</div>
     </div>
   </div>
 </section>
@@ -1236,27 +1343,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="benefit-cards">
         <div class="benefit-card">
           <div class="icon">🪄</div>
-          <p>Estrutura decorativa que se ergue sozinha ao abrir</p>
+          <div class="txt"><strong>Pop-up automático</strong><p>Estrutura decorativa se ergue sozinha ao abrir</p></div>
         </div>
         <div class="benefit-card">
           <div class="icon">🔊</div>
-          <p>Áudio com a voz de Bolsonaro toca automaticamente</p>
+          <div class="txt"><strong>Áudio automático</strong><p>Voz de Bolsonaro toca assim que o cartão abre</p></div>
         </div>
         <div class="benefit-card">
           <div class="icon">✍️</div>
-          <p>Espaço interno para escrever sua mensagem</p>
+          <div class="txt"><strong>Mensagem própria</strong><p>Espaço interno para você escrever</p></div>
         </div>
         <div class="benefit-card">
           <div class="icon">🎙️</div>
-          <p>Opção de mensagem de áudio personalizada</p>
+          <div class="txt"><strong>Áudio personalizado</strong><p>Adicione uma mensagem de voz extra</p></div>
         </div>
         <div class="benefit-card">
           <div class="icon">🎥</div>
-          <p>Perfeito para gravar a reação de quem recebe</p>
+          <div class="txt"><strong>Momento gravável</strong><p>Perfeito para registrar a reação</p></div>
         </div>
         <div class="benefit-card">
           <div class="icon">🇧🇷</div>
-          <p>Ideal para quem ama o Brasil</p>
+          <div class="txt"><strong>Espírito patriota</strong><p>Ideal para quem ama o Brasil</p></div>
         </div>
       </div>
     </div>
@@ -1298,9 +1405,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Ao abrir, uma estrutura decorativa se ergue de dentro do cartão e a voz de Bolsonaro começa automaticamente. Tudo ao mesmo tempo — uma experiência que ninguém espera.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Galeria de fotos do produto -->
-    <div class="gallery-mini" style="margin-top:48px;">
+<!-- ═══════════ DEMONSTRAÇÃO ═══════════ -->
+<section class="section" id="demonstracao" style="padding-top:0;">
+  <div class="container">
+    <div class="center-title">
+      <div class="section-label">Demonstração</div>
+      <h2>Veja o cartão de perto</h2>
+      <p>Fotos reais do produto — o mesmo que chega na sua casa.</p>
+    </div>
+
+    <div class="gallery-mini">
       <div class="hero-carousel" id="galleryCarousel">
         <button class="carousel-btn prev" type="button" aria-label="Foto anterior">‹</button>
 
@@ -1327,11 +1444,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+
+    <div class="demo-cta-wrap">
+      <a href="#oferta" class="btn-hero">
+        Garantir o meu agora
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OFERTA ═══════════ -->
+<section class="offer-section" id="oferta">
+  <div class="container">
+    <div class="center-title">
+      <div class="section-label" style="color:var(--ouro-claro);">Oferta exclusiva</div>
+      <h2>Garanta o seu Cartão Patriota</h2>
+      <p>Um presente premium, único e impossível de esquecer.</p>
+    </div>
+
+    <div class="offer-card">
+
+      <div class="offer-price-hero">
+        <div class="offer-price-row">
+          <span class="offer-currency">R$</span>
+          <span class="offer-amount">89</span>
+          <span class="offer-cents">,90</span>
+        </div>
+        <div class="offer-shipping">🚚 Frete grátis para todo o Brasil</div>
+        <div style="margin-top:12px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+          <span style="font-size:13px; color:var(--text-soft); display:flex; align-items:center; gap:6px; font-weight:600;">
+            ⚙️ Produção em até 3 dias úteis
+          </span>
+          <span style="font-size:13px; color:var(--text-soft); display:flex; align-items:center; gap:6px; font-weight:600;">
+            📦 Entrega conforme seu CEP
+          </span>
+        </div>
+      </div>
+
+      <a href="https://cartao-patriota.pay.yampi.com.br/r/CJ9Q1Z0SKU" class="btn-offer">
+        Garantir meu Cartão Patriota 🇧🇷
+      </a>
+
+      <p class="offer-guarantee">
+        🔒 Pagamento 100% seguro &nbsp;•&nbsp; Entrega em todo o Brasil
+      </p>
+
+    </div>
   </div>
 </section>
 
 <!-- ═══════════ PROVA SOCIAL ═══════════ -->
-<section class="section" id="depoimentos" style="padding-top:0;">
+<section class="section" id="depoimentos">
   <div class="container">
     <div class="center-title">
       <div class="section-label">Quem já recebeu</div>
@@ -1379,46 +1543,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ OFERTA ═══════════ -->
-<section class="offer-section" id="oferta">
-  <div class="container">
-    <div class="center-title">
-      <div class="section-label" style="color:var(--ouro-claro);">Oferta exclusiva</div>
-      <h2>Garanta o seu Cartão Patriota</h2>
-      <p>Um presente premium, único e impossível de esquecer.</p>
-    </div>
-
-    <div class="offer-card">
-
-      <div class="offer-price-hero">
-        <div class="offer-price-row">
-          <span class="offer-currency">R$</span>
-          <span class="offer-amount">89</span>
-          <span class="offer-cents">,90</span>
-        </div>
-        <div class="offer-shipping">🚚 Frete grátis para todo o Brasil</div>
-        <div style="margin-top:12px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-          <span style="font-size:13px; color:var(--text-soft); display:flex; align-items:center; gap:6px; font-weight:600;">
-            ⚙️ Produção em até 3 dias úteis
-          </span>
-          <span style="font-size:13px; color:var(--text-soft); display:flex; align-items:center; gap:6px; font-weight:600;">
-            📦 Entrega conforme seu CEP
-          </span>
-        </div>
-      </div>
-
-      <a href="https://cartao-patriota.pay.yampi.com.br/r/CJ9Q1Z0SKU" class="btn-offer">
-        Garantir meu Cartão Patriota 🇧🇷
-      </a>
-
-      <p class="offer-guarantee">
-        🔒 Pagamento 100% seguro &nbsp;•&nbsp; Entrega em todo o Brasil
-      </p>
-
     </div>
   </div>
 </section>
