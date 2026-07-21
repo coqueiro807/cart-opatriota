@@ -114,15 +114,17 @@ body::before {
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "top visual" "bottom visual";
-  gap: 48px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.hero-top { grid-area: top; }
-.hero-bottom { grid-area: bottom; }
+.hero-top { width: 100%; }
+.hero-bottom { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -156,9 +158,10 @@ body::before {
 .hero-sub {
   font-size: 18px;
   color: var(--text-soft);
-  margin-bottom: 34px;
+  margin: 0 auto;
   max-width: 500px;
   line-height: 1.65;
+  text-align: center;
 }
 
 .hero-sub strong {
@@ -210,6 +213,7 @@ body::before {
 .hero-trust {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   margin-top: 22px;
   flex-wrap: wrap;
@@ -234,8 +238,7 @@ body::before {
 /* ─── CAROUSEL ─── */
 .hero-visual {
   position: relative;
-  grid-area: visual;
-  align-self: center;
+  width: 100%;
 }
 
 .hero-carousel {
@@ -832,14 +835,6 @@ body::before {
     grid-template-columns: 1fr;
   }
 
-  .hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas: "top" "visual" "bottom";
-    gap: 28px;
-  }
-
-  .hero-visual { align-self: auto; }
-
   .destaque-wrap {
     padding: 40px 28px;
   }
@@ -885,8 +880,9 @@ body::before {
 .hero-price-quick {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 6px;
   flex-wrap: wrap;
 }
 
@@ -914,10 +910,20 @@ body::before {
   letter-spacing: 0.04em;
 }
 
+.hero-installment {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 22px;
+}
+
 /* ─── HERO: VÍDEO ─── */
 .hero-video-wrap {
   position: relative;
   width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
   aspect-ratio: 4/5;
   overflow: hidden;
   border-radius: 24px;
@@ -1152,6 +1158,7 @@ body::before {
 .hero-rating {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
   font-size: 13px;
@@ -1204,18 +1211,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="hero-grid">
 
-      <!-- TOPO — eyebrow, título e subtítulo -->
+      <!-- TÍTULO -->
       <div class="hero-top">
         <h1>
-          Um presente de aniversário que ninguém vai <em>esquecer</em>
+          Um cartão que fala e surpreende logo ao abrir.
         </h1>
-
-        <p class="hero-sub">
-          Ao abrir o cartão, a voz de Bolsonaro começa automaticamente e uma estrutura interna que se ergue sozinha revela a surpresa — uma experiência visual e sonora ao mesmo tempo. Impossível de ignorar.
-        </p>
       </div>
 
-      <!-- VÍDEO — logo abaixo do texto, ocupando a posição de maior destaque -->
+      <!-- VÍDEO — logo abaixo do título, ocupando a posição de maior destaque -->
       <div class="hero-visual">
         <div class="hero-video-wrap" id="heroVideoWrap">
           <!-- Autoplay só é permitido pelos navegadores com o vídeo mudo.
@@ -1234,7 +1237,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- BASE — avaliação, preço, CTA e confiança -->
+      <!-- DESCRIÇÃO — logo após o vídeo, antes do preço -->
+      <p class="hero-sub">
+        Ao abrir o cartão, uma mensagem em áudio na voz de Bolsonaro é reproduzida automaticamente enquanto o pop-up se revela, criando um presente impossível de esquecer.
+      </p>
+
+      <!-- PREÇO, PARCELAMENTO, BOTÃO E CONFIANÇA — tudo centralizado -->
       <div class="hero-bottom">
         <!-- EDITAR: assim que tiver avaliações reais, troque o texto "novidade" pelo número de avaliações -->
         <div class="hero-rating">
@@ -1248,6 +1256,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- EDITAR: ajuste a condição de parcelamento real da Yampi, se houver -->
           <span class="parcel">no Pix ou cartão &nbsp;•&nbsp; frete grátis</span>
         </div>
+
+        <!-- Parcelamento discreto -->
+        <div class="hero-installment">ou em até 12x no cartão</div>
 
         <a href="#oferta" class="btn-hero">
           Quero presentear agora
